@@ -16,14 +16,14 @@
     <meta property="og:url" content="https://melawholefoodsva.com/">
     <meta property="og:title" content="Mela Whole Foods - Feeding Our Neighbors">
     <meta property="og:description" content="Fighting hunger and building hope in our community. Join us in providing nutritious food and essential support to families in need.">
-    <meta property="og:image" content="https://melawholefoodsva.com/images/meta.jpg">
+    <meta property="og:image" content="https://melawholefoodsva.com/images/mela.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://melawholefoodsva.com/">
     <meta property="twitter:title" content="Mela Whole Foods - Feeding Our Neighbors">
     <meta property="twitter:description" content="Fighting hunger and building hope in our community. Join us in providing nutritious food and essential support to families in need.">
-    <meta property="twitter:image" content="https://melawholefoodsva.com/images/meta.jpg">
+    <meta property="twitter:image" content="https://melawholefoodsva.com/images/mela.jpg">
 
     <title>Mela Whole Foods Mobile Grocery - Brilliance in Community Impact</title>
     
@@ -80,8 +80,22 @@
 
         /* Hero section responsive fixes */
         @media (max-width: 1024px) and (min-width: 769px) {
+          .hero {
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .hero-content {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
           .hero-content > div {
             gap: 1.5rem !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           .hero-content > div > div {
             max-width: 300px !important;
@@ -262,11 +276,18 @@
         /* Innovation/Services grid responsive fixes */
         @media (max-width: 1024px) and (min-width: 769px) {
           .services-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            grid-template-rows: 1fr 1fr !important;
             gap: 1.5rem !important;
+            justify-items: center !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
           }
           .service-card {
-            max-width: 220px !important;
-            padding: 0.75rem !important;
+            max-width: 250px !important;
+            width: 100% !important;
+            padding: 1rem !important;
           }
         }
 
@@ -313,14 +334,25 @@
         /* Volunteer section responsive fixes */
         @media (max-width: 1024px) and (min-width: 769px) {
           .volunteer-content {
+            display: flex !important;
+            flex-direction: row !important;
             gap: 1.5rem !important;
+            align-items: center !important;
+          }
+          .volunteer-card {
+            flex: 1 !important;
+            min-width: 300px !important;
           }
           .volunteer-image {
+            flex: 1 !important;
             min-width: 350px !important;
+            display: flex !important;
+            justify-content: center !important;
           }
           .volunteer-image img {
-            max-width: 350px !important;
+            max-width: 400px !important;
             width: 100% !important;
+            height: auto !important;
           }
         }
 
@@ -432,13 +464,13 @@
         /* General container and padding fixes */
         @media (max-width: 1024px) and (min-width: 769px) {
           body, main {
-            padding-left: 1.5rem !important;
-            padding-right: 1.5rem !important;
-          }
-          .container {
             padding-left: 1rem !important;
             padding-right: 1rem !important;
-            max-width: calc(100vw - 3rem) !important;
+          }
+          .container {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
+            max-width: calc(100vw - 2rem) !important;
           }
           section {
             padding: 1.75rem 0 !important;
@@ -451,6 +483,34 @@
           }
           h3 {
             font-size: 1.2rem !important;
+          }
+        }
+
+        /* Footer responsive fixes */
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .footer .container {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            max-width: calc(100vw - 2rem) !important;
+          }
+          .footer-content {
+            gap: 1.5rem !important;
+            padding: 0 0.5rem !important;
+          }
+          .footer-section {
+            min-width: 160px !important;
+          }
+          .footer-section:last-child {
+            flex: 1.5 !important;
+            min-width: 200px !important;
+          }
+          .footer-section p {
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
+          }
+          .footer-section a {
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
           }
         }
 
@@ -669,7 +729,7 @@
       "@type": "NGO",
       "name": "Mela Whole Foods",
       "url": "https://melawholefoodsva.com",
-      "logo": "https://melawholefoodsva.com/images/meta.jpg",
+      "logo": "https://melawholefoodsva.com/images/mela.jpg",
       "description": "Fighting hunger and building hope in our community. Providing nutritious food and essential support to families in need.",
       "address": {
         "@type": "PostalAddress",
@@ -693,7 +753,7 @@
     <header class="header">
         <nav class="navbar" role="navigation" aria-label="Main navigation">
                 <div class="logo">
-                    <img src="images/meta.jpg" alt="Mela Whole Foods Logo" class="logo-img" width="100" height="100">
+                    <img src="images/mela.jpg" alt="Mela Whole Foods Logo" class="logo-img" width="100" height="100">
                     <h1>Mela Whole Foods</h1>
                 </div>
                 <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleNavMenu()">
@@ -723,13 +783,13 @@
         <section id="home" class="hero" style="flex-direction:column;align-items:center;justify-content:center;text-align:center;">
             <div class="hero-content" style="max-width:900px;margin:auto;">
                 <h1 style="color:#387f2f;font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;text-align:center;width:100%;display:block;">Mela Whole Foods Mobile Grocery</h1>
-                <p style="color:#387f2f;font-size:1.15rem;font-weight:400;margin-bottom:1rem;text-align:center;width:100%;display:block;">Mela is short for "Hlokomela," which translates to "take care."</p>
+                <p style="color:#387f2f;font-size:1.15rem;font-weight:400;margin-bottom:1rem;text-align:center;width:100%;display:block;">Mela is short for "Hlokomela (Ha-Lo-Ko-Mei-La)," which translates to "To take care of."</p>
                     <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:2rem;margin-top:1rem;">
                     <div style="flex:1;display:flex;justify-content:center;">
                         <img src="images/van2.jpg" alt="Mela Mobile Grocery Truck" width="350" height="350" style="border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.12);" loading="lazy">
                     </div>
                     <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
-                        <p style="font-size:1.2rem;margin:1rem 0;">Empowering communities through fresh, affordable, and high-quality food—delivered with heart, purpose, and a commitment to equity.</p>
+                        <p style="font-size:1.2rem;margin:1rem 0;">Empowering communities through fresh, affordable, and high-quality food delivered with heart, purpose, and a commitment to equity.</p>
                         <div class="hero-buttons" style="margin:1.5rem 0;">
                             <a href="#mission" class="btn btn-primary" style="margin-right:1rem;">Our Mission</a>
                             <a href="#impact" class="btn btn-secondary">See Our Impact</a>
@@ -840,30 +900,34 @@
                 <div style="display:flex;flex-wrap:wrap;gap:4rem;justify-content:center;align-items:stretch;">
                     <!-- Educational Outreach Section -->
                     <div style="flex:1;min-width:350px;max-width:700px;display:flex;">
-                        <div class="section-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2.5rem;margin:auto;text-align:center;display:flex;flex-direction:column;width:100%;">
-                            <div class="section-header" style="text-align:center;">
-                                <h2 style="color:#387f2f;">Educational Outreach & Community Building</h2>
+                        <div class="section-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2.5rem;margin:auto;text-align:center;display:flex;flex-direction:column;width:100%;height:100%;">
+                            <div class="section-header" style="text-align:center;margin-bottom:2rem;">
+                                <h2 style="color:#387f2f;margin-bottom:0.5rem;">Educational Outreach & Community Building</h2>
+                                <p style="color:#666;font-size:1rem;margin:0;">Empowering families through knowledge and skills</p>
                             </div>
-                            <div class="section-card" style="background:#f5f9f2;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:1.5rem;margin:2rem auto 0 auto;text-align:center;max-width:700px;flex-grow:1;">
-                                <ul style="text-align:center;font-size:1.05rem;list-style-position:inside;margin:0;">
-                                    <li>Workshops on nutrition and budgeting for families.</li>
-                                    <li>Cooking classes and recipe cards for affordable, nutritious meals.</li>
-                                    <li>Youth programs on healthy eating and gardening.</li>
+                            <div class="section-card" style="background:#f5f9f2;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:1.5rem;text-align:center;max-width:700px;flex-grow:1;display:flex;flex-direction:column;justify-content:center;">
+                                <ul style="text-align:left;font-size:1.05rem;list-style-position:inside;margin:0;line-height:1.8;">
+                                    <li>Workshops on nutrition and budgeting for families</li>
+                                    <li>Cooking classes and recipe cards for affordable meals</li>
+                                    <li>Youth programs on healthy eating and gardening</li>
+                                    <li>Financial literacy and meal planning education</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <!-- Local First Section -->
                     <div style="flex:1;min-width:350px;max-width:700px;display:flex;">
-                        <div class="section-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2.5rem;margin:auto;text-align:center;display:flex;flex-direction:column;width:100%;">
-                            <div class="section-header" style="text-align:center;">
-                                <h2 style="color:#387f2f;">Nurturing a “Local First” Shopping Culture</h2>
+                        <div class="section-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2.5rem;margin:auto;text-align:center;display:flex;flex-direction:column;width:100%;height:100%;">
+                            <div class="section-header" style="text-align:center;margin-bottom:2rem;">
+                                <h2 style="color:#387f2f;margin-bottom:0.5rem;">Nurturing a "Local First" Shopping Culture</h2>
+                                <p style="color:#666;font-size:1rem;margin:0;">Building stronger communities through local support</p>
                             </div>
-                            <div class="section-card" style="background:#f5f9f2;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:1.5rem;margin:2rem auto 0 auto;text-align:center;max-width:700px;flex-grow:1;">
-                                <ul style="text-align:center;font-size:1.05rem;list-style-position:inside;margin:0;">
-                                    <li>Foster community support and pride in local business.</li>
-                                    <li>Create a hub for social gatherings, food sharing, and support for local businesses.</li>
-                                    <li>Build brand loyalty through personal touch and commitment to the community.</li>
+                            <div class="section-card" style="background:#f5f9f2;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:1.5rem;text-align:center;max-width:700px;flex-grow:1;display:flex;flex-direction:column;justify-content:center;">
+                                <ul style="text-align:left;font-size:1.05rem;list-style-position:inside;margin:0;line-height:1.8;">
+                                    <li>Foster community support and pride in local business</li>
+                                    <li>Create a hub for social gatherings and food sharing</li>
+                                    <li>Build brand loyalty through personal community touch</li>
+                                    <li>Support local entrepreneurs and small businesses</li>
                                 </ul>
                             </div>
                         </div>
@@ -877,25 +941,25 @@
             <div class="container" style="max-width:900px;margin:auto;">
                 <div class="section-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2.5rem;margin:auto;text-align:center;">
                     <div class="section-header" style="text-align:center;">
-                        <h2 style="color:#387f2f;">Our Community Impact</h2>
+                        <h2 style="color:#387f2f;">Our Community Impact Goals</h2>
                         <p>See how Mela Whole Foods Mobile Grocery is changing lives every week.</p>
                     </div>
-                    <div class="stats" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;justify-items:center;margin:2rem 0;">
-                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                            <h4 style="color:#387f2f;font-size:2rem;">20,000+</h4>
-                            <p>Families Served Annually</p>
+                    <div class="stats" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;justify-items:center;margin:2rem 0;max-width:600px;margin-left:auto;margin-right:auto;">
+                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);display:flex;flex-direction:column;justify-content:center;width:100%;">
+                            <h4 style="color:#387f2f;font-size:2rem;margin:0 0 0.5rem 0;">20,000+</h4>
+                            <p style="margin:0;font-weight:500;">Families Served Annually</p>
                         </div>
-                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                            <h4 style="color:#387f2f;font-size:2rem;">750,000+</h4>
-                            <p>Meals Provided</p>
+                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);display:flex;flex-direction:column;justify-content:center;width:100%;">
+                            <h4 style="color:#387f2f;font-size:2rem;margin:0 0 0.5rem 0;">750,000+</h4>
+                            <p style="margin:0;font-weight:500;">Meals Provided</p>
                         </div>
-                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                            <h4 style="color:#387f2f;font-size:2rem;">300+</h4>
-                            <p>Neighborhoods Reached</p>
+                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);display:flex;flex-direction:column;justify-content:center;width:100%;">
+                            <h4 style="color:#387f2f;font-size:2rem;margin:0 0 0.5rem 0;">300+</h4>
+                            <p style="margin:0;font-weight:500;">Neighborhoods Reached</p>
                         </div>
-                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                            <h4 style="color:#387f2f;font-size:2rem;">500+</h4>
-                            <p>Local Growers Supported</p>
+                        <div class="stat" style="background:#f5f9f2;border-radius:10px;padding:1.5rem;min-width:180px;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);display:flex;flex-direction:column;justify-content:center;width:100%;">
+                            <h4 style="color:#387f2f;font-size:2rem;margin:0 0 0.5rem 0;">500+</h4>
+                            <p style="margin:0;font-weight:500;">Local Growers Supported</p>
                         </div>
                     </div>
                     <div class="impact-story" style="margin:2rem auto;max-width:700px;background:#f5f9f2;border-radius:10px;padding:1.5rem;box-shadow:0 1px 4px rgba(56,127,47,0.07);text-align:center;">
@@ -911,7 +975,7 @@
             <div class="container" style="max-width:1200px;margin:auto;">
                 <div class="section-header" style="text-align:center;">
                     <h2 style="color:#387f2f;">How Mela Mobile Grocery Works</h2>
-                    <p>Innovation meets compassion—see what makes us different.</p>
+                    <p>Innovation meets compassion, see what makes us different.</p>
                 </div>
                 <div class="services-grid" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:2rem;justify-content:center;">
                     <article class="service-card" style="background:#f5f9f2;border-radius:10px;padding:1rem;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
@@ -927,7 +991,7 @@
                     <article class="service-card" style="background:#f5f9f2;border-radius:10px;padding:1rem;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
                         <img src="images/fooddelivery.jpg" alt="Mobile grocery truck" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
                         <h3>Mobile Grocery Truck</h3>
-                        <p>Our truck brings the store to you—no need to travel far for healthy food.</p>
+                        <p>Our truck brings the store to you, no need to travel far for healthy food.</p>
                     </article>
                     <article class="service-card" style="background:#f5f9f2;border-radius:10px;padding:1rem;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
                         <img src="images/nutrition.jpg" alt="Nutrition education" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
@@ -944,7 +1008,7 @@
                 <div class="section-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2.5rem;margin:auto;text-align:center;max-width:400px;">
                     <h2 style="color:#387f2f;">Mela Merch</h2>
                     <div class="product-card" style="background:#f5f9f2;border-radius:10px;box-shadow:0 1px 4px rgba(56,127,47,0.07);padding:1.5rem;max-width:350px;margin:2rem auto;">
-                        <img src="images/meta.jpg" alt="Merch Product Placeholder" width="250" height="250" style="border-radius:8px;box-shadow:0 1px 4px rgba(56,127,47,0.10);object-fit:cover;max-width:100%;height:auto;" loading="lazy">
+                        <img src="images/mela.jpg" alt="Merch Product Placeholder" width="250" height="250" style="border-radius:8px;box-shadow:0 1px 4px rgba(56,127,47,0.10);object-fit:cover;max-width:100%;height:auto;" loading="lazy">
                         <h3 style="color:#387f2f;margin-top:1rem;">Merch Coming Soon!</h3>
                         <p style="font-size:1.1rem;color:#333;margin:0.5rem 0 0.5rem 0;">$0.00</p>
                         <a href="#" class="btn btn-primary" style="margin-top:1rem;">Buy Now</a>
@@ -992,7 +1056,7 @@
                 <div class="donation-options">
                     <article class="donation-card">
                         <div class="donation-image">
-                            <img src="images/meta3d.jpg" alt="Monetary donations - Supporting families in need" width="500" height="500" loading="lazy">
+                            <img src="images/mela3d.jpg" alt="Monetary donations - Supporting families in need" width="500" height="500" loading="lazy">
                         </div>
                         <h3>Monetary Donations</h3>
                         <p>Financial contributions allow us to purchase fresh produce, proteins, and other essential items in bulk at reduced costs.</p>
@@ -1010,29 +1074,8 @@
                     <p>We're here to help and answer any questions you may have</p>
                 </div>
                 
-                <div class="contact-content" style="display:flex;flex-direction:row;align-items:flex-start;justify-content:center;gap:3rem;text-align:left;flex-wrap:wrap;">
-                    <div class="contact-info" style="flex:1;min-width:260px;max-width:400px;margin-bottom:2rem;">
-                        <div class="contact-item">
-                            <h3>Visit Us</h3>
-                            <address>
-                                123 Community Way<br>
-                                Hometown, ST 12345
-                            </address>
-                        </div>
-                        <div class="contact-item">
-                            <h3>Distribution Hours</h3>
-                            <p>Monday: 10AM - 2PM<br>
-                            Wednesday: 3PM - 7PM<br>
-                            Saturday: 9AM - 1PM</p>
-                        </div>
-                        <div class="contact-item">
-                            <h3>Contact Information</h3>
-                            <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a><br>
-                            Email: <a href="mailto:info@melawholefoodsva.com">info@melawholefoodsva.com</a><br>
-                            Emergency Line: <a href="tel:+15559876543">(555) 987-6543</a></p>
-                        </div>
-                    </div>
-                    <form class="contact-form" method="POST" action="https://formspree.io/f/xwkzqgqg" novalidate style="flex:1;min-width:260px;max-width:500px;margin-bottom:2rem;background:#f5f9f2;border-radius:10px;padding:2rem;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
+                <div class="contact-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+                    <form class="contact-form" method="POST" action="https://formspree.io/f/xwkzqgqg" novalidate style="width:100%;max-width:500px;margin:0 auto;background:#f5f9f2;border-radius:10px;padding:2rem;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
                         <h3 style="text-align:center;">Send us a Message</h3>
                         <!-- Honeypot field for spam protection -->
                         <div style="display:none;">
@@ -1071,32 +1114,9 @@
                     </form>
                 </div>
                 <style>
-                @media (max-width: 900px) {
-                  .contact-content {
-                    flex-direction: column !important;
-                    align-items: center !important;
-                    text-align: center !important;
-                  }
-                  .contact-info, .contact-form {
-                    max-width: 100% !important;
-                    margin-bottom: 2rem !important;
-                  }
+                @media (max-width: 768px) {
                   .contact-form {
-                    padding: 1rem !important;
-                  }
-                }
-                @media (min-width: 901px) {
-                  .contact-content {
-                    flex-direction: row !important;
-                    align-items: flex-start !important;
-                    justify-content: center !important;
-                    text-align: left !important;
-                  }
-                  .contact-info {
-                    text-align: left !important;
-                  }
-                  .contact-form {
-                    text-align: left !important;
+                    padding: 1.5rem !important;
                   }
                 }
                 </style>
@@ -1143,12 +1163,7 @@
                     </ul>
                 </div>
                 <div class="footer-section" style="flex:1;min-width:180px;">
-                    <h4>Contact Info</h4>
-                    <address>
-                        123 Community Way<br>
-                        Hometown, ST 12345
-                    </address>
-                    <p>Phone: <a href="tel:+15551234567" style="color:#fff;text-decoration:underline;font-size:1.15rem;"></a></p>
+                    <h4>Contact</h4>
                     <p>Email: <a href="mailto:info@melawholefoodsva.com" style="color:#fff;text-decoration:underline;font-size:1.15rem;">info@melawholefoodsva.com</a></p>
                 </div>
             </div>
