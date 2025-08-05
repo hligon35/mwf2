@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Enable CORS for your domain
-header("Access-Control-Allow-Origin: https://yourdomain.com");
+header("Access-Control-Allow-Origin: https://melawholefoodsva.com");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 // Configuration - UPDATE THESE VALUES
 $config = [
     'to_email' => 'info@melawholefoodsva.com',
-    'from_email' => 'noreply@yourdomain.com',
+    'from_email' => 'noreply@melawholefoodsva.com',
     'from_name' => 'Mela Whole Foods Website',
     'smtp_host' => 'smtp.yourmailserver.com', // e.g., smtp.gmail.com, mail.yourdomain.com
     'smtp_username' => 'your-smtp-username',

@@ -1,5 +1,5 @@
 <?php
-// Enable CORS for your domain (adjust as needed)
+// Simple contact handler that works with most hosting providers
 header("Access-Control-Allow-Origin: https://melawholefoodsva.com");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -11,14 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     echo json_encode(["error" => "Method not allowed"]);
     exit;
 }
-
-// Configuration
-$to_email = "info@melawholefoodsva.com";
-$from_email = "noreply@melawholefoodsva.com"; // Use your domain
-$smtp_host = "smtp.gmail.com"; // Google Workspace SMTP
-$smtp_username = "info@melawholefoodsva.com"; // Your Google Workspace email
-$smtp_password = "your-app-password"; // Google App Password (not regular password)
-$smtp_port = 587; // Gmail TLS port
 
 // Honeypot spam protection
 if (!empty($_POST['website'])) {
@@ -46,34 +38,29 @@ if (!empty($errors)) {
     exit;
 }
 
-// Create email content
+// Email configuration
+$to_email = "info@melawholefoodsva.com";
 $subject = "New Contact Form Submission - Mela Whole Foods";
-$email_body = "
-New contact form submission from Mela Whole Foods website:
 
-Name: $name
-Email: $email
-Topic: $topic
+// Create email content
+$email_body = "New contact form submission from Mela Whole Foods website:\n\n";
+$email_body .= "Name: " . $name . "\n";
+$email_body .= "Email: " . $email . "\n";
+$email_body .= "Topic: " . $topic . "\n\n";
+$email_body .= "Message:\n" . $message . "\n\n";
+$email_body .= "---\n";
+$email_body .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
+$email_body .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
 
-Message:
-$message
-
----
-Submitted: " . date('Y-m-d H:i:s') . "
-IP Address: " . $_SERVER['REMOTE_ADDR'] . "
-";
-
-// Email headers
-$headers = [
-    'From' => $from_email,
-    'Reply-To' => $email,
-    'X-Mailer' => 'PHP/' . phpversion(),
-    'MIME-Version' => '1.0',
-    'Content-Type' => 'text/plain; charset=UTF-8'
-];
+// Email headers for better delivery
+$headers = "From: Mela Website <noreply@melawholefoodsva.com>\r\n";
+$headers .= "Reply-To: " . $email . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 try {
-    // Simple mail() function (works if server has sendmail configured)
+    // Use PHP's built-in mail function
     $success = mail($to_email, $subject, $email_body, $headers);
     
     if ($success) {
