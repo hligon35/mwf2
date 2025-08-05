@@ -684,6 +684,59 @@
             width: 70px !important;
           }
         }
+
+        /* Floating Scroll Arrow Styles */
+        .scroll-arrow {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 50px;
+          height: 50px;
+          background: #387f2f;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 4px 12px rgba(56,127,47,0.3);
+          transition: all 0.3s ease;
+          z-index: 1000;
+          opacity: 0;
+          visibility: hidden;
+        }
+        .scroll-arrow.visible {
+          opacity: 1;
+          visibility: visible;
+        }
+        .scroll-arrow:hover {
+          background: #2d6626;
+          transform: scale(1.1);
+          box-shadow: 0 6px 20px rgba(56,127,47,0.4);
+        }
+        .scroll-arrow svg {
+          width: 24px;
+          height: 24px;
+          fill: white;
+          transition: transform 0.3s ease;
+        }
+        .scroll-arrow.up svg {
+          transform: rotate(180deg);
+        }
+        .scroll-arrow.down svg {
+          transform: rotate(0deg);
+        }
+        @media (max-width: 768px) {
+          .scroll-arrow {
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+          }
+          .scroll-arrow svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
     </style>
     
     <link rel="stylesheet" href="styles.css">
@@ -860,6 +913,9 @@
                     <li>Partner with small-scale farmers and co-ops for local, sustainable products.</li>
                   </ul>
                 </div>
+                <div style="text-align:center;margin-top:2rem;">
+                  <a href="#contact" class="btn btn-primary">Get Involved Today</a>
+                </div>
               </div>
             </div>
           </div>
@@ -965,6 +1021,9 @@
                     <div class="impact-story" style="margin:2rem auto;max-width:700px;background:#f5f9f2;border-radius:10px;padding:1.5rem;box-shadow:0 1px 4px rgba(56,127,47,0.07);text-align:center;">
                         <h3 style="color:#387f2f;">A Story from the Road</h3>
                         <p style="font-size:1.05rem;">"Before Mela Mobile Grocery, I had to travel miles to get fresh produce for my family. Now, the truck comes right to our block every Wednesday. My kids love picking out their own fruits, and I love the affordable prices. It's more than a grocery store—it's a lifeline for our neighborhood."<br><span style="font-style:italic;">— Maria, Eastside Resident</span></p>
+                    </div>
+                    <div style="text-align:center;margin-top:2rem;">
+                        <a href="#contact" class="btn btn-primary">Partner With Us</a>
                     </div>
                 </div>
             </div>
@@ -1190,6 +1249,13 @@
         </div>
     </footer>
 
+    <!-- Floating Scroll Arrow -->
+    <div class="scroll-arrow" id="scrollArrow" onclick="scrollToTarget()">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+        </svg>
+    </div>
+
     <script>
       function toggleNavMenu() {
         var navMenu = document.getElementById('navMenu');
@@ -1280,6 +1346,60 @@
             }
           }
         });
+
+        // Floating Scroll Arrow Functionality
+        var scrollArrow = document.getElementById('scrollArrow');
+        var isScrollingUp = false;
+        
+        function updateScrollArrow() {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          var documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+          var scrollPercentage = scrollTop / documentHeight;
+          
+          // Show arrow when scrolled past 10% of the page
+          if (scrollPercentage > 0.1) {
+            scrollArrow.classList.add('visible');
+          } else {
+            scrollArrow.classList.remove('visible');
+          }
+          
+          // Change direction based on 50% scroll
+          if (scrollPercentage > 0.5) {
+            scrollArrow.classList.add('up');
+            scrollArrow.classList.remove('down');
+            isScrollingUp = true;
+          } else {
+            scrollArrow.classList.add('down');
+            scrollArrow.classList.remove('up');
+            isScrollingUp = false;
+          }
+        }
+        
+        // Smooth scroll to target
+        function scrollToTarget() {
+          if (isScrollingUp) {
+            // Scroll to top
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          } else {
+            // Scroll to bottom
+            window.scrollTo({
+              top: document.documentElement.scrollHeight,
+              behavior: 'smooth'
+            });
+          }
+        }
+        
+        // Make scrollToTarget globally available
+        window.scrollToTarget = scrollToTarget;
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', updateScrollArrow);
+        
+        // Initial call to set correct state
+        updateScrollArrow();
       });
     </script>
     <script src="script.js" defer></script>
