@@ -1074,9 +1074,9 @@
                     <p>We're here to help and answer any questions you may have</p>
                 </div>
                 
-                <div class="contact-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+                <div class="contact-content" style="display:flex;flex-direction:row;align-items:flex-start;justify-content:center;gap:2rem;flex-wrap:wrap;">
                     <!-- Contact Form - Server-side handler -->
-                    <form class="contact-form" method="POST" action="/contact-handler.php" novalidate style="width:100%;max-width:500px;margin:0 auto;background:#f5f9f2;border-radius:10px;padding:2rem;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
+                    <form class="contact-form" method="POST" action="/contact-handler.php" novalidate style="flex:1;min-width:300px;max-width:500px;background:#f5f9f2;border-radius:10px;padding:2rem;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
                         <h3 style="text-align:center;">Send us a Message</h3>
                         <!-- Honeypot field for spam protection -->
                         <div style="display:none;">
@@ -1114,19 +1114,36 @@
                     </form>
                     
                     <!-- Direct Email Option -->
-                    <div style="margin-top:2rem;text-align:center;padding:1rem;background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(56,127,47,0.07);max-width:500px;">
+                    <div style="flex:1;min-width:300px;max-width:500px;text-align:center;padding:2rem;background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(56,127,47,0.07);display:flex;flex-direction:column;justify-content:center;">
                         <h4 style="color:#387f2f;margin-bottom:1rem;">Or Email Us Directly</h4>
-                        <p style="margin-bottom:1rem;">Send your message directly to our team:</p>
+                        <p style="margin-bottom:1.5rem;">Send your message directly to our team:</p>
                         <a href="mailto:info@melawholefoodsva.com?subject=Inquiry from Mela Whole Foods Website" 
-                           style="color:#387f2f;font-weight:600;text-decoration:none;font-size:1.1rem;">
+                           style="color:#387f2f;font-weight:600;text-decoration:none;font-size:1.1rem;margin-bottom:1.5rem;">
                            info@melawholefoodsva.com
                         </a>
+                        <div style="margin-top:1rem;padding:1rem;background:#f5f9f2;border-radius:8px;">
+                            <p style="font-size:0.9rem;color:#666;margin:0;">We typically respond within 24 hours during business days.</p>
+                        </div>
                     </div>
                 </div>
                 <style>
                 @media (max-width: 768px) {
                   .contact-form {
                     padding: 1.5rem !important;
+                  }
+                  .contact-content {
+                    flex-direction: column !important;
+                    align-items: center !important;
+                  }
+                  .contact-content > div,
+                  .contact-content > form {
+                    max-width: 100% !important;
+                    min-width: 280px !important;
+                  }
+                }
+                @media (max-width: 900px) {
+                  .contact-content {
+                    gap: 1.5rem !important;
                   }
                 }
                 </style>
@@ -1135,10 +1152,10 @@
     </main>
 
     <!-- Footer -->
-    <!-- <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:2rem;">
-                <div class="footer-section" style="flex:2;min-width:220px;">
+                <!-- <div class="footer-section" style="flex:2;min-width:220px;">
                     <h3>Mela Whole Foods</h3>
                     <p>Serving our community with dignity, respect, and<br>compassion. No one should go hungry.</p>
                     <div class="social-links" style="display:flex;justify-content:center;align-items:center;margin-top:1rem;gap:1rem;">
