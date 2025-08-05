@@ -1,53 +1,91 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mela Whole Foods - Fighting hunger and building hope in our community. Join us in providing nutritious food and essential support to families in need.">
-    <meta name="keywords" content="food pantry, hunger relief, community support, volunteer, donations, nonprofit, food assistance">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#387f2f">
+    <meta name="msapplication-TileColor" content="#387f2f">
+    <title>Mela Whole Foods Mobile Grocery - Brilliance in Community Impact</title>
+    <meta name="description" content="Mela Whole Foods Mobile Grocery serves food deserts with fresh, affordable groceries. Fighting hunger and building hope through community empowerment and nutritious food access.">
+    <meta name="keywords" content="mobile grocery, food desert, community support, affordable groceries, food pantry, hunger relief, volunteer, donations, nonprofit, food assistance, fresh produce, Richmond VA">
     <meta name="author" content="Mela Whole Foods">
+    <link rel="canonical" href="https://melawholefoodsva.com/">
+    
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:title" content="Mela Whole Foods - Feeding Our Neighbors">
-    <meta property="og:description" content="Fighting hunger and building hope in our community. Join us in providing nutritious food and essential support to families in need.">
-    <meta property="og:image" content="images/mela.jpg">
+    <meta property="og:url" content="https://melawholefoodsva.com/">
+    <meta property="og:title" content="Mela Whole Foods Mobile Grocery - Community Impact">
+    <meta property="og:description" content="Mobile grocery service bringing fresh, affordable food to underserved communities. Join our mission to fight hunger and empower neighborhoods.">
+    <meta property="og:image" content="https://melawholefoodsva.com/images/mela.jpg">
+    <meta property="og:image:alt" content="Mela Whole Foods Mobile Grocery truck serving the community">
+    <meta property="og:site_name" content="Mela Whole Foods">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="">
-    <meta property="twitter:title" content="Mela Whole Foods - Feeding Our Neighbors">
-    <meta property="twitter:description" content="Fighting hunger and building hope in our community. Join us in providing nutritious food and essential support to families in need.">
-    <meta property="twitter:image" content="images/mela.jpg">
+    <meta property="twitter:url" content="https://melawholefoodsva.com/">
+    <meta property="twitter:title" content="Mela Whole Foods Mobile Grocery - Community Impact">
+    <meta property="twitter:description" content="Mobile grocery service bringing fresh, affordable food to underserved communities. Join our mission to fight hunger and empower neighborhoods.">
+    <meta property="twitter:image" content="https://melawholefoodsva.com/images/mela.jpg">
 
-    <title>Mela Whole Foods Mobile Grocery - Brilliance in Community Impact</title>
+    <!-- Favicon and icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"></noscript>
+    <link rel="preload" href="styles.css" as="style">
     
     <!-- Critical CSS for above-the-fold content -->
     <style>
-        @media (max-width: 900px) {
-          img[alt="Community Empowerment"] {
-            width: 375px !important;
-            height: 375px !important;
-          }
-        }
+        /* Critical reset and base styles */
         *{margin:0;padding:0;box-sizing:border-box}
-        html { overflow-x: hidden; }
-        body{font-family:'Open Sans',sans-serif;line-height:1.6;color:#333;overflow-x:hidden;}
+        html,body{overflow-x:hidden;scroll-behavior:smooth}
+        body{font-family:'Open Sans',sans-serif;line-height:1.6;color:#333}
+        
+        /* Critical header styles */
         .header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);position:fixed;width:100%;top:0;z-index:1000}
-        .navbar{width:100%;padding:0 40px;display:flex;justify-content:space-between;align-items:center;position:relative;}
+        .navbar{width:100%;padding:0 40px;display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center;gap:1rem}
         .logo-img{height:100px;width:auto;object-fit:contain}
         .logo h1{color:#387f2f;font-size:1.8rem;font-weight:700;margin:0}
+        
+        /* Critical hero styles */
         .hero{margin-top:80px;padding:4rem 0;background:linear-gradient(135deg,#f5f9f2 0%,#f5f9f2 100%);display:flex;align-items:center;justify-content:center;min-height:50vh;max-width:1200px;margin-left:auto;margin-right:auto}
+        
+        /* Critical button styles */
+        .btn{padding:12px 30px;text-decoration:none;border-radius:5px;font-weight:600;transition:all .3s;display:inline-block;border:none;cursor:pointer}
+        .btn-primary{background:#387f2f;color:#fff}
+        .btn-secondary{background:transparent;color:#387f2f;border:2px solid #387f2f}
+        
+        /* Critical responsive styles */
+        @media (max-width: 900px) {
+          .navbar{padding:0 20px}
+          .logo h1{font-size:1.4rem}
+          .logo-img{height:80px}
+          img[alt="Community Empowerment"]{width:375px!important;height:375px!important}
+        }
+        @media (max-width: 600px) {
+          .navbar{padding:0 15px}
+          .logo h1{font-size:1.2rem}
+          .logo-img{height:70px}
+        }
+    </style>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Additional optimized styles -->
+    <style>
         /* Ensure anchor navigation leaves space for fixed header */
         section[id] {
           scroll-margin-top: 100px;
@@ -685,6 +723,136 @@
           }
         }
 
+        /* Hero Section Responsive Fixes */
+        .hero {
+          min-height: 60vh;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          text-align: center !important;
+          padding: 2rem 0 !important;
+          margin-top: 80px !important;
+        }
+        
+        .hero-content {
+          max-width: 90% !important;
+          width: 100% !important;
+          margin: 0 auto !important;
+          padding: 0 1rem !important;
+        }
+        
+        .hero-content > div {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 1.5rem !important;
+          width: 100% !important;
+        }
+        
+        .hero-content > div > div {
+          flex: none !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+          text-align: center !important;
+        }
+        
+        .hero-content img {
+          max-width: 300px !important;
+          width: 100% !important;
+          height: auto !important;
+          margin: 0 auto !important;
+        }
+        
+        .hero-buttons {
+          display: flex !important;
+          flex-direction: row !important;
+          gap: 1rem !important;
+          justify-content: center !important;
+          align-items: center !important;
+          flex-wrap: wrap !important;
+        }
+
+        @media (max-width: 1024px) and (min-width: 769px) {
+          .hero {
+            min-height: 55vh !important;
+            padding: 2rem 0 !important;
+          }
+          .hero-content {
+            max-width: 85% !important;
+          }
+          .hero-content h1 {
+            font-size: 2.2rem !important;
+          }
+          .hero-content img {
+            max-width: 280px !important;
+          }
+        }
+
+        @media (max-width: 900px) {
+          .hero {
+            min-height: 50vh !important;
+            padding: 1.5rem 0 !important;
+          }
+          .hero-content {
+            max-width: 95% !important;
+            padding: 0 0.5rem !important;
+          }
+          .hero-content h1 {
+            font-size: 2rem !important;
+          }
+          .hero-content p {
+            font-size: 1.1rem !important;
+          }
+          .hero-content img {
+            max-width: 250px !important;
+          }
+          .hero-buttons {
+            flex-direction: column !important;
+            gap: 0.75rem !important;
+            width: 100% !important;
+          }
+          .hero-buttons a {
+            width: 200px !important;
+            text-align: center !important;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .hero {
+            min-height: 45vh !important;
+            padding: 1rem 0 !important;
+          }
+          .hero-content {
+            max-width: 100% !important;
+            padding: 0 0.5rem !important;
+          }
+          .hero-content h1 {
+            font-size: 1.8rem !important;
+            margin-bottom: 0.5rem !important;
+          }
+          .hero-content p {
+            font-size: 1rem !important;
+            margin-bottom: 0.75rem !important;
+          }
+          .hero-content img {
+            max-width: 220px !important;
+          }
+          .hero-buttons {
+            margin: 1rem 0 !important;
+          }
+          .hero-buttons a {
+            width: 180px !important;
+            padding: 0.75rem 1rem !important;
+            font-size: 0.9rem !important;
+          }
+        }
+
         /* Floating Scroll Arrow Styles */
         .scroll-arrow {
           position: fixed;
@@ -739,41 +907,7 @@
         }
     </style>
     
-    <link rel="stylesheet" href="styles.css">
-    <style>
-      .empowerment-image-wrapper {
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
-      }
-      .empowerment-image-wrapper img {
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        display: block;
-      }
-      @media (max-width: 768px) {
-        .empowerment-image-wrapper {
-          margin-top: 0.75rem !important;
-          margin-bottom: 0.75rem !important;
-        }
-        .empowerment-image-wrapper img {
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
-        }
-      }
-      @media (max-width: 480px) {
-        .empowerment-image-wrapper {
-          margin-top: 0.75rem !important;
-          margin-bottom: 0.75rem !important;
-        }
-        .empowerment-image-wrapper img {
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
-        }
-      }
-    </style>
-    
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -781,23 +915,32 @@
       "@context": "https://schema.org",
       "@type": "NGO",
       "name": "Mela Whole Foods",
-      "url": "",
-      "logo": "images/mela.jpg",
-      "description": "Fighting hunger and building hope in our community. Providing nutritious food and essential support to families in need.",
+      "url": "https://melawholefoodsva.com",
+      "logo": "https://melawholefoodsva.com/images/mela.jpg",
+      "description": "Mobile grocery service bringing fresh, affordable food to underserved communities. Fighting hunger and building hope through community empowerment.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "123 Community Way",
-        "addressLocality": "Hometown",
-        "addressRegion": "ST",
-        "postalCode": "12345"
+        "streetAddress": "9221 Forest Hill Ave Suite 1 PMB 1021",
+        "addressLocality": "Richmond",
+        "addressRegion": "VA",
+        "postalCode": "23235"
       },
-      "telephone": "(555) 123-4567",
-      "email": "",
-      "sameAs": [
-        "https://facebook.com/communityhearts",
-        "https://twitter.com/communityhearts",
-        "https://instagram.com/communityhearts"
-      ]
+      "email": "info@melawholefoodsva.com",
+      "areaServed": "Richmond, VA",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mobile Grocery Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile Grocery Delivery",
+              "description": "Fresh produce and groceries delivered to underserved communities"
+            }
+          }
+        ]
+      }
     }
     </script>
 </head>
@@ -814,7 +957,7 @@
                     <span></span>
                     <span></span>
                 </button>
-                <ul class="nav-menu" role="menubar" id="navMenu" style="display:none;position:absolute;top:80px;right:40px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);border-radius:10px;padding:1rem 2rem;z-index:2000;">
+                <ul class="nav-menu" role="menubar" id="navMenu" style="display:none;">
                     <li role="none"><a href="#home" role="menuitem">Home</a></li>
                     <li role="none"><a href="#mission" role="menuitem">Mission</a></li>
                     <li role="none"><a href="#objectives" role="menuitem">Objectives</a></li>
@@ -839,7 +982,7 @@
                 <p style="color:#387f2f;font-size:1.15rem;font-weight:400;margin-bottom:1rem;text-align:center;width:100%;display:block;">Mela is short for "Hlokomela (Ha-Lo-Ko-Mei-La)," which translates to "To take care of."</p>
                     <div style="display:flex;flex-direction:row;align-items:center;justify-content:center;gap:2rem;margin-top:1rem;">
                     <div style="flex:1;display:flex;justify-content:center;">
-                        <img src="images/van2.jpg" alt="Mela Mobile Grocery Truck" width="350" height="350" style="border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.12);" loading="lazy">
+                        <img src="images/van2.jpg" alt="Mela Mobile Grocery Van delivering fresh food to communities" width="350" height="350" style="border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.12);" fetchpriority="high">
                     </div>
                     <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
                         <p style="font-size:1.2rem;margin:1rem 0;">Empowering communities through fresh, affordable, and high-quality food delivered with heart, purpose, and a commitment to equity.</p>
@@ -896,7 +1039,7 @@
           <div class="container" style="max-width:1400px;margin:auto;">
             <div class="community-flex" style="display:flex;align-items:center;gap:2rem;">
               <div>
-                <img src="images/empower.jpg" alt="Community Empowerment" width="500" height="500" style="flex:0 0 600px;display:block;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.12);object-fit:cover;">
+                <img src="images/empower.jpg" alt="Community empowerment through fresh food access and local partnerships" width="500" height="500" style="flex:0 0 600px;display:block;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.12);object-fit:cover;" loading="lazy">
               </div>
               <div class="section-card" style="flex:1;background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2rem;text-align:center;">
                 <div class="section-header" style="text-align:center;">
@@ -1038,22 +1181,22 @@
                 </div>
                 <div class="services-grid" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:2rem;justify-content:center;">
                     <article class="service-card" style="background:#f5f9f2;border-radius:10px;padding:1rem;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                        <img src="images/produce.jpg" alt="Fresh produce selection" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
+                        <img src="images/produce.jpg" alt="Fresh local produce from community farmers" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
                         <h3>Fresh Local Produce</h3>
                         <p>Hand-picked fruits and vegetables from local growers, delivered weekly.</p>
                     </article>
                     <article class="service-card" style="background:#f5f9f2;border-radius:10px;padding:1rem;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                        <img src="images/grains.jpg" alt="Affordable pantry staples" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
+                        <img src="images/grains.jpg" alt="Affordable pantry staples and grains for families" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
                         <h3>Affordable Pantry Staples</h3>
                         <p>Grains, rice, canned goods, and essentials at prices everyone can afford.</p>
                     </article>
                     <article class="service-card" style="background:#f5f9f2;border-radius:10px;padding:1rem;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                        <img src="images/fooddelivery.jpg" alt="Mobile grocery truck" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
+                        <img src="images/fooddelivery.jpg" alt="Mobile grocery truck bringing food to neighborhoods" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
                         <h3>Mobile Grocery Truck</h3>
                         <p>Our truck brings the store to you, no need to travel far for healthy food.</p>
                     </article>
                     <article class="service-card" style="background:#f5f9f2;border-radius:10px;padding:1rem;max-width:250px;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
-                        <img src="images/nutrition.jpg" alt="Nutrition education" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
+                        <img src="images/nutrition.jpg" alt="Community nutrition education and health workshops" width="250" height="160" loading="lazy" style="border-radius:6px;max-width:100%;height:160px;object-fit:cover;">
                         <h3>Nutrition Education</h3>
                         <p>Free workshops and tips to help families make healthy choices every day.</p>
                     </article>
@@ -1067,7 +1210,7 @@
                 <div class="section-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(56,127,47,0.10);padding:2.5rem;margin:auto;text-align:center;max-width:400px;">
                     <h2 style="color:#387f2f;">Mela Merch</h2>
                     <div class="product-card" style="background:#f5f9f2;border-radius:10px;box-shadow:0 1px 4px rgba(56,127,47,0.07);padding:1.5rem;max-width:350px;margin:2rem auto;">
-                        <img src="images/mela.jpg" alt="Merch Product Placeholder" width="250" height="250" style="border-radius:8px;box-shadow:0 1px 4px rgba(56,127,47,0.10);object-fit:cover;max-width:100%;height:auto;" loading="lazy">
+                        <img src="images/mela.jpg" alt="Mela Whole Foods merchandise coming soon - support our mission" width="250" height="250" style="border-radius:8px;box-shadow:0 1px 4px rgba(56,127,47,0.10);object-fit:cover;max-width:100%;height:auto;" loading="lazy">
                         <!-- <h3 style="color:#387f2f;margin-top:1rem;">Merch Coming Soon!</h3> -->
                         <p style="font-size:1.1rem;color:#333;margin:0.5rem 0 0.5rem 0;"></p>
                         <a href="#" class="btn btn-primary" style="margin-top:1rem;">Coming Soon!</a>
@@ -1098,7 +1241,7 @@
                         </div>
                     </div>
                     <div class="volunteer-image" style="flex:1;min-width:500px;text-align:center;margin-top: 0;">
-                        <img src="images/veggies.jpg" alt="Happy volunteers working together" width="600" height="600" loading="lazy" style="border-radius:10px;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
+                        <img src="images/veggies.jpg" alt="Community volunteers sorting fresh vegetables for distribution" width="600" height="600" loading="lazy" style="border-radius:10px;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
                     </div>
                 </div>
             </div>
@@ -1115,7 +1258,7 @@
                 <div class="donation-options">
                     <article class="donation-card">
                         <div class="donation-image">
-                            <img src="images/mela3d.jpg" alt="Monetary donations - Supporting families in need" width="500" height="500" loading="lazy">
+                            <img src="images/mela3d.jpg" alt="Mela Whole Foods donation support - helping families access fresh food" width="500" height="500" loading="lazy">
                         </div>
                         <h3>Monetary Donations</h3>
                         <p>Financial contributions allow us to purchase fresh produce, proteins, and other essential items in bulk at reduced costs.</p>
@@ -1134,7 +1277,7 @@
                 </div>
                 
                 <div class="contact-content" style="display:flex;flex-direction:row;align-items:flex-start;justify-content:center;gap:2rem;flex-wrap:wrap;">
-                    <!-- Contact Form - Server-side handler -->
+                    <!-- Contact Form - Optimized -->
                     <form class="contact-form" method="POST" action="/contact-handler.php" novalidate style="flex:1;min-width:300px;max-width:500px;background:#f5f9f2;border-radius:10px;padding:2rem;box-shadow:0 1px 4px rgba(56,127,47,0.07);">
                         <h3 style="text-align:center;">Send us a Message</h3>
                         <!-- Honeypot field for spam protection -->
@@ -1144,11 +1287,11 @@
                         </div>
                         <div class="form-group">
                             <label for="name" class="sr-only">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required aria-required="true" autocomplete="name">
                         </div>
                         <div class="form-group">
                             <label for="email" class="sr-only">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required aria-required="true">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required aria-required="true" autocomplete="email">
                         </div>
                         <div class="form-group">
                             <label for="topic" class="sr-only">Select a Topic</label>
@@ -1168,8 +1311,8 @@
                         <div style="display:flex;justify-content:center;align-items:center;width:100%;margin-top:1rem;">
                           <button type="submit" class="btn btn-primary" style="margin-left:auto;margin-right:auto;">Send Message</button>
                         </div>
-                        <div id="form-success" style="display:none;color:#387f2f;margin-top:1rem;font-weight:600;">Thank you! Your message has been sent.</div>
-                        <div id="form-error" style="display:none;color:#d32f2f;margin-top:1rem;font-weight:600;">Sorry, there was an error. Please try again.</div>
+                        <div id="form-success" style="display:none;color:#387f2f;margin-top:1rem;font-weight:600;" role="status" aria-live="polite">Thank you! Your message has been sent.</div>
+                        <div id="form-error" style="display:none;color:#d32f2f;margin-top:1rem;font-weight:600;" role="alert" aria-live="assertive">Sorry, there was an error. Please try again.</div>
                     </form>
                     
                     <!-- Direct Email Option -->
