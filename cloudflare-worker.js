@@ -8,7 +8,7 @@ addEventListener('fetch', event => {
 async function handleRequest(request) {
   // CORS headers
   const corsHeaders = {
-    'Access-Control-Allow-Origin': 'https://yourdomain.com', // Replace with your domain
+    'Access-Control-Allow-Origin': 'https://melawholefoodsva.com', // Replace with your domain
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   }

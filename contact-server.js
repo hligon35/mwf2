@@ -7,7 +7,7 @@ const app = express();
 // Configuration - UPDATE THESE VALUES
 const config = {
     toEmail: 'info@melawholefoodsva.com',
-    fromEmail: 'noreply@yourdomain.com',
+    fromEmail: 'noreply@melawholefoodsva.com',
     smtpHost: 'smtp.yourmailserver.com',
     smtpPort: 587,
     smtpUser: 'your-smtp-username',
