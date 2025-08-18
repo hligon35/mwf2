@@ -1,0 +1,49 @@
+# 1) Create runner home
+DIR=/srv/gha-runners/portal
+RUNNER_NAME=portal-runner
+REPO_NAME=<EXACT_REPO_NAME>   # e.g., getsparqd-portal
+
+sudo mkdir -p "$DIR"
+sudo chown -R "$USER":"$USER" "$DIR"
+cd "$DIR"
+
+# 2) Download ARM64 runner (pinned version)
+curl -fL -o actions-runner-linux-arm64-2.319.1.tar.gz \
+  https://github.com/actions/runner/releases/download/v2.319.1/actions-runner-linux-arm64-2.319.1.tar.gz
+tar tzf actions-runner-linux-arm64-2.319.1.tar.gz >/dev/null
+tar xzf actions-runner-linux-arm64-2.319.1.tar.gz
+chmod +x ./config.sh ./run.sh
+
+# 3) Dependencies
+sudo apt-get update
+sudo apt-get install -y libicu72 libkrb5-3 zlib1g libssl3 libstdc++6
+
+# 4) Register runner (get a NEW token from the repo’s Settings → Actions → Runners)
+./config.sh --url https://github.com/hligon35/$REPO_NAME \
+            --token <NEW_TOKEN> \
+            --name "$RUNNER_NAME" \
+            --labels pi,prod \
+            --unattended
+
+# 5) Systemd service (no svc.sh)
+sudo tee /etc/systemd/system/${RUNNER_NAME}.service >/dev/null <<UNIT
+[Unit]
+Description=GitHub Actions Runner (${RUNNER_NAME})
+After=network-online.target
+
+[Service]
+WorkingDirectory=${DIR}
+ExecStart=${DIR}/run.sh
+User=${USER}
+Restart=always
+RestartSec=5
+Environment=DOTNET_CLI_TELEMETRY_OPTOUT=1
+Environment=DOTNET_NOLOGO=1
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now ${RUNNER_NAME}.service
+systemctl status ${RUNNER_NAME}.service --no-pager
