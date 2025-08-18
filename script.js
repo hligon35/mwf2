@@ -203,6 +203,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Donate Modal Logic
+document.addEventListener('DOMContentLoaded', function() {
+    const openBtn = document.getElementById('openDonateModal');
+    const modalOverlay = document.getElementById('donateModal');
+    const closeBtn = document.getElementById('closeDonateModal');
+    let lastFocused;
+
+    function openModal(e){
+        if(e) e.preventDefault();
+        if(!modalOverlay) return;
+        lastFocused = document.activeElement;
+        modalOverlay.classList.add('active');
+        modalOverlay.setAttribute('aria-hidden','false');
+        // Focus first focusable element
+        if(closeBtn) closeBtn.focus();
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+        if(!modalOverlay) return;
+        modalOverlay.classList.remove('active');
+        modalOverlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        if(lastFocused && typeof lastFocused.focus === 'function'){
+            lastFocused.focus();
+        }
+    }
+
+    if(openBtn){ openBtn.addEventListener('click', openModal); }
+    if(closeBtn){ closeBtn.addEventListener('click', closeModal); }
+    if(modalOverlay){
+        modalOverlay.addEventListener('click', function(e){
+            if(e.target === modalOverlay) closeModal();
+        });
+    }
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')){
+            closeModal();
+        }
+    });
+});
+
 // Add loading states and error handling
 function showLoading(element) {
     element.style.opacity = '0.7';

@@ -988,7 +988,7 @@
                         <p style="font-size:1.2rem;margin:1rem 0;">Empowering communities through fresh, affordable, and high-quality food delivered with heart, purpose, and a commitment to equity.</p>
                         <div class="hero-buttons" style="margin:1.5rem 0;">
                             <a href="#mission" class="btn btn-primary" style="margin-right:1rem;">Our Mission</a>
-                            <a href="#impact" class="btn btn-secondary">See Our Impact</a>
+                            <!-- <a href="#impact" class="btn btn-secondary">See Our Impact</a> -->
                         </div>
                     </div>
                 </div>
@@ -1217,9 +1217,9 @@
                     </div>
                 </div>
             </div>
-        </section
+        </section>
 
-        <!-- Volunteer & Community Section -->
+        <!-- Volunteer & Community Section
   <section id="volunteer" class="volunteer" style="background:#f5f9f2;padding:2rem 0;">
             <div class="container" style="max-width:1400px;margin:auto;">
                 <div class="volunteer-content" style="display:flex;flex-wrap:wrap;align-items:center;gap:2rem;">
@@ -1245,7 +1245,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Donation Section -->
   <section id="donate" class="donate" style="background:#fff;">
@@ -1262,7 +1262,7 @@
                         </div>
                         <h3>Monetary Donations</h3>
                         <p>Financial contributions allow us to purchase fresh produce, proteins, and other essential items in bulk at reduced costs.</p>
-                        <a href="#" class="btn btn-primary">Donate</a>
+                        <a href="#" id="openDonateModal" class="btn btn-primary" role="button">Donate</a>
                     </article>
                 </div>
             </div>
@@ -1341,6 +1341,27 @@
         </section>
     </main>
 
+    <!-- Donate Modal Overlay -->
+    <div class="modal-overlay" id="donateModal" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="donateModalTitle" aria-describedby="donateModalDesc">
+        <button class="modal-close" id="closeDonateModal" aria-label="Close donation options">&times;</button>
+        <h3 id="donateModalTitle">Donate via QR Code</h3>
+        <p id="donateModalDesc">Scan a QR code below to donate with Zelle or PayPal.</p>
+        <div class="qr-grid">
+          <div class="qr-card">
+            <h4>Zelle</h4>
+            <div class="qr-placeholder">QR COMING SOON</div>
+            <p class="qr-note">Send to: info@melawholefoodsva.com via Zelle</p>
+          </div>
+          <div class="qr-card">
+            <h4>PayPal</h4>
+            <div class="qr-placeholder">QR COMING SOON</div>
+            <p class="qr-note">PayPal donation QR will be added here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1388,7 +1409,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Mela Whole Foods. All rights reserved. | 501(c)(3) Non-Profit Organization</p>
+                <p>&copy; 2025 Mela Whole Foods. All rights reserved.</p>
                 <!-- <p>Website designed by <a href="https://www.getsparqd.com" target="_blank" rel="noopener noreferrer">SparQ Digital Media Management Company</a></p> -->
             </div>
         </div>

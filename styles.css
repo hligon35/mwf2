@@ -722,6 +722,22 @@ html{scroll-behavior:auto}
   }
 }
 
+/* Donate Modal Overlay */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:2000;padding:1rem}
+.modal-overlay.active{display:flex}
+.modal{background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);max-width:800px;width:100%;padding:2rem;position:relative}
+.modal h3{color:#387f2f;margin-bottom:0.5rem;text-align:center}
+.modal p{color:#666;text-align:center;margin-bottom:1.5rem}
+.modal-close{position:absolute;top:10px;right:12px;background:transparent;border:none;font-size:2rem;line-height:1;color:#387f2f;cursor:pointer}
+.qr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.qr-card{background:#f5f9f2;border-radius:10px;padding:1.5rem;text-align:center;box-shadow:0 1px 4px rgba(56,127,47,0.1)}
+.qr-card h4{color:#387f2f;margin-bottom:0.75rem}
+.qr-placeholder{height:220px;border:2px dashed #c7dfc3;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#387f2f;font-weight:700;letter-spacing:1px}
+.qr-note{font-size:0.95rem;color:#555;margin-top:0.75rem}
+@media(max-width:700px){
+  .qr-grid{grid-template-columns:1fr}
+}
+
 /* Responsive improvements for cards and sections */
 @media(max-width:900px){
   /* Mission & Vision cards */
