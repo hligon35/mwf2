@@ -1,3 +1,11 @@
+.qr-img {
+  width:180px;
+  height:180px;
+  display:block;
+  margin:0 auto 0.5rem auto;
+  border-radius:8px;
+  box-shadow:0 1px 4px rgba(56,127,47,0.10);
+}
 /* Reset and Base Styles - Optimized */
 * {
   margin: 0;
@@ -818,3 +826,12 @@ html{scroll-behavior:auto}
 .mt-2{ margin-top:2rem }
 .centered{ margin-left:auto; margin-right:auto }
 .hidden{ display:none }
+.gap-3{ gap:3rem }
+.mailto-link{ color:#387f2f; font-weight:600; text-decoration:none; font-size:1.1rem; margin-bottom:1.5rem; display:inline-block }
+.footer-section { flex:1; min-width:250px; text-align:center }
+.social-links { display:flex; justify-content:center; align-items:center; margin-top:1rem; gap:1rem }
+.footer-links { list-style:none; padding:0; margin:0; text-align:center }
+.mailto-footer { color:#fff; text-decoration:underline; font-size:1.15rem }
+.p-1 { padding: 1rem }
+.rounded-8 { border-radius: 8px }
+.muted-text { font-size:0.9rem; color:#666; margin:0 }
