@@ -7,7 +7,7 @@
 $CONFIG = [
     'to_email'       => 'info@melawholefoodsva.com',
     'from_email'     => 'noreply@melawholefoodsva.com',
-    'from_name'      => 'Mela Whole Foods Message',
+    'from_name'      => 'New Submission from MelaWholeFoodsVA.com',
     'allowed_origins'=> [
         'https://melawholefoodsva.com',
         'https://www.melawholefoodsva.com'
@@ -109,9 +109,9 @@ if ($errors) {
 
 rate_limit($CONFIG);
 
-$subject = 'New Contact Form Submission - Mela Whole Foods';
+$subject = 'New Submission from MelaWholeFoodsVA.com';
 $email_body = implode("\n", [
-    'New contact form submission from Mela Whole Foods website:',
+    'New submission from MelaWholeFoodsVA.com:',
     '',
     'Name: '.$input['name'],
     'Email: '.$input['email'],
