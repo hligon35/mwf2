@@ -1277,45 +1277,63 @@
                 </div>
                 
                 <div class="contact-content" style="display:flex;flex-direction:row;align-items:flex-start;justify-content:center;gap:2rem;flex-wrap:wrap;">
-                    <!-- Contact Form - Optimized -->
-                    <form class="contact-form" method="POST" action="https://yourdomain.com/contact-handler.php" novalidate style="flex:1;min-width:300px;max-width:500px;" aria-label="Contact form">
+                    <!-- Contact Form - External API POST -->
+                    <form id="contactForm" class="contact-form" style="flex:1;min-width:300px;max-width:500px;" aria-label="Contact form">
                         <h3 style="text-align:center;">Send us a Message</h3>
-                        <!-- Honeypot field for spam protection -->
-                        <div style="display:none;">
-                          <label for="website">Website</label>
-                          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                          <!-- Site identifier for multi-site handler -->
-                          <input type="hidden" name="site" value="melawholefoodsva.com">
+                        <div class="form-group">
+                          <input type="text" name="name" placeholder="Your name" required aria-required="true" autocomplete="name" />
                         </div>
-            <div class="form-group">
-              <label for="name" class="sr-only">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your full name" required aria-required="true" autocomplete="name">
-            </div>
-            <div class="form-group">
-              <label for="email" class="sr-only">Your Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-required="true" autocomplete="email">
-            </div>
-            <div class="form-group">
-              <label for="topic" class="sr-only">Select a Topic</label>
-              <select id="topic" name="topic" required aria-required="true">
-                <option value="">Select a topic...</option>
-                <option value="volunteer">Volunteer Opportunities</option>
-                <option value="donation">Food or Monetary Donation</option>
-                <option value="services">Request Services</option>
-                <option value="partnership">Partnership Inquiry</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message" class="sr-only">Your Message</label>
-              <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required aria-required="true"></textarea>
-            </div>
+                        <div class="form-group">
+                          <input type="email" name="email" placeholder="you@example.com" required aria-required="true" autocomplete="email" />
+                        </div>
+                        <div class="form-group">
+                          <input type="tel" name="phone" placeholder="Phone (optional)" autocomplete="tel" />
+                        </div>
+                        <div class="form-group">
+                          <input type="text" name="subject" placeholder="Subject (optional)" />
+                        </div>
+                        <div class="form-group">
+                          <textarea name="message" placeholder="Your message" required aria-required="true" rows="5"></textarea>
+                        </div>
+                        <!-- Honeypot (leave empty) -->
+                        <input type="text" name="hp" style="display:none" tabindex="-1" autocomplete="off" />
+                        <!-- Explicit routing key -->
+                        <input type="hidden" name="site" value="melawholefoodsva.com" />
                         <div style="display:flex;justify-content:center;align-items:center;width:100%;margin-top:1rem;">
-                          <button type="submit" class="btn btn-primary" style="margin-left:auto;margin-right:auto;">Send Message</button>
+                          <button type="submit" class="btn btn-primary" style="margin-left:auto;margin-right:auto;">Send</button>
                         </div>
-                        <div id="form-success" style="display:none;color:#387f2f;margin-top:1rem;font-weight:600;" role="status" aria-live="polite">Thank you! Your message has been sent.</div>
-                        <div id="form-error" style="display:none;color:#d32f2f;margin-top:1rem;font-weight:600;" role="alert" aria-live="assertive">Sorry, there was an error. Please try again.</div>
+                        <p id="result" aria-live="polite" style="margin-top:1rem;text-align:center;"></p>
                     </form>
+                    <script>
+                    const ENDPOINT = 'https://portal.getsparqd.com/api/contact';
+                    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        const f = e.target;
+                        const data = {
+                            name: f.name.value.trim(),
+                            email: f.email.value.trim(),
+                            phone: f.phone.value.trim(),
+                            subject: f.subject.value.trim() || 'Contact - Mela Whole Foods VA',
+                            message: f.message.value.trim(),
+                            site: 'melawholefoodsva.com',
+                            hp: f.hp.value || ''
+                        };
+                        const resEl = document.getElementById('result');
+                        try {
+                            const r = await fetch(ENDPOINT, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(data)
+                            });
+                            if (!r.ok) throw new Error('HTTP ' + r.status);
+                            resEl.textContent = 'Thanks—your message was sent.';
+                            f.reset();
+                        } catch (err) {
+                            resEl.textContent = 'Sorry, we could not send your message. Please try again.';
+                            console.error('Contact error:', err);
+                        }
+                    });
+                    </script>
                     
                     <!-- Direct Email Option -->
                     <div style="flex:1;min-width:300px;max-width:500px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
