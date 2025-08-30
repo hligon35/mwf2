@@ -60,7 +60,7 @@ async function handleRequest(request) {
 
     // Create email content
     const emailContent = `
-New contact form submission from Mela Whole Foods website:
+New submission from MelaWholeFoodsVA.com:
 
 Name: ${name}
 Email: ${email}
@@ -90,7 +90,7 @@ User Agent: ${request.headers.get('User-Agent')}
           to_email: 'info@melawholefoodsva.com',
           from_name: name,
           from_email: email,
-          subject: 'New Contact Form Submission - Mela Whole Foods',
+          subject: 'New Submission from MelaWholeFoodsVA.com',
           message: emailContent
         }
       })
