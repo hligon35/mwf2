@@ -27,6 +27,8 @@
     <meta property="og:title" content="Mela Whole Foods Mobile Grocery - Community Impact">
     <meta property="og:description" content="Mobile grocery service bringing fresh, affordable food to underserved communities. Join our mission to fight hunger and empower neighborhoods.">
     <meta property="og:image" content="https://melawholefoodsva.com/images/mela.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Mela Whole Foods Mobile Grocery truck serving the community">
     <meta property="og:site_name" content="Mela Whole Foods">
 
@@ -82,7 +84,8 @@
         }
     </style>
     
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     
     <!-- Additional optimized styles -->
     <style>
@@ -927,6 +930,18 @@
       },
       "email": "info@melawholefoodsva.com",
       "areaServed": "Richmond, VA",
+      "sameAs": [
+        "https://www.instagram.com/melawholefoods",
+        "https://www.facebook.com/melawholefoods",
+        "https://www.linkedin.com/company/melawholefoods",
+        "https://www.youtube.com/@melawholefoods"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "info@melawholefoodsva.com",
+        "areaServed": "US"
+      }],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Mobile Grocery Services",
@@ -940,6 +955,20 @@
             }
           }
         ]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Mela Whole Foods",
+      "url": "https://melawholefoodsva.com/",
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.google.com/search?q=site%3Amelawholefoodsva.com+{search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     }
     </script>
@@ -978,16 +1007,16 @@
         
     <section id="home" class="hero">
       <div class="hero-content max-w-900 centered">
-  <h1 style="color:#387f2f;font-size:2.4rem;font-weight:700;margin-bottom:0.5rem;">Mela Whole Foods Mobile Grocery</h1>
-  <p style="color:#387f2f;font-size:1.15rem;font-weight:400;margin-bottom:1rem;">Mela is short for "Hlokomela (Ha-Lo-Ko-Mei-La)," which translates to "To take care of."</p>
+  <h1 class="text-brand fs-24 fw-700 mb-05">Mela Whole Foods Mobile Grocery</h1>
+  <p class="text-brand fs-115 fw-400 mb-1">Mela is short for "Hlokomela (Ha-Lo-Ko-Mei-La)," which translates to "To take care of."</p>
           <div class="flex-center mt-1">
-          <div class="flex-center" style="flex:1;justify-content:center;">
+          <div class="flex-center flex-1 justify-center">
             <img src="images/van2.jpg" alt="Mela Mobile Grocery Van delivering fresh food to communities" width="350" height="350" class="img-radius" fetchpriority="high">
           </div>
-          <div class="flex-col" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-            <p style="font-size:1.2rem;margin:1rem 0;">Empowering communities through fresh, affordable, and high-quality food delivered with heart, purpose, and a commitment to equity.</p>
+          <div class="flex-col flex-1 items-center justify-center text-center">
+            <p class="fs-12 mt-1 mb-1">Empowering communities through fresh, affordable, and high-quality food delivered with heart, purpose, and a commitment to equity.</p>
             <div class="hero-buttons mt-2">
-              <a href="#mission" class="btn btn-primary" style="margin-right:1rem;">Our Mission</a>
+              <a href="#mission" class="btn btn-primary mr-1">Our Mission</a>
               <!-- <a href="#impact" class="btn btn-secondary">See Our Impact</a> -->
             </div>
           </div>
@@ -998,14 +1027,14 @@
         <!-- Mission & Vision Section -->
     <section id="mission" class="section-padding bg-white">
       <div class="container max-w-1600 centered">
-        <div class="flex-center" style="flex-wrap:wrap;gap:3rem;align-items:stretch;text-align:center;">
-                    <div class="section-card bg-alt" style="padding:2rem;flex:1;min-width:400px;max-width:650px;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;">
-                        <h2 style="color:#387f2f;text-align:center;">Mission Statement</h2>
-                        <p style="font-size:1.1rem;text-align:center;flex-grow:1;">Our mission is to create a thriving, community-centered grocery store that provides affordable, fresh, and high-quality food to areas where there are food deserts, senior citizens who are unable to access grocery stores, the disabled and low-income families. We are committed to bridging the gap in food access by offering nutritious options at prices that empower families to thrive. At the heart of our business is a deep dedication to fostering economic growth and sustainability, with a particular focus on promoting ownership and leadership within the food industry. Through community engagement, local partnerships, and a commitment to excellence, we aim to build a space where families feel valued, supported, and connected, all while creating opportunities for economic empowerment and long-term generational wealth for entrepreneurs.</p>
+  <div class="flex-center flex-wrap gap-3 items-stretch text-center">
+  <div class="section-card bg-alt p-2 flex-1 minw-400 maxw-650 text-center flex-col justify-start items-center">
+            <h2 class="text-brand text-center">Mission Statement</h2>
+                        <p class="fs-11 text-center flex-grow">Our mission is to create a thriving, community-centered grocery store that provides affordable, fresh, and high-quality food to areas where there are food deserts, senior citizens who are unable to access grocery stores, the disabled and low-income families. We are committed to bridging the gap in food access by offering nutritious options at prices that empower families to thrive. At the heart of our business is a deep dedication to fostering economic growth and sustainability, with a particular focus on promoting ownership and leadership within the food industry. Through community engagement, local partnerships, and a commitment to excellence, we aim to build a space where families feel valued, supported, and connected, all while creating opportunities for economic empowerment and long-term generational wealth for entrepreneurs.</p>
                     </div>
-                    <div class="section-card bg-alt" style="padding:2rem;flex:1;min-width:400px;max-width:650px;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;text-align:center;">
-                        <h2 style="color:#387f2f;text-align:center;">Vision</h2>
-                        <p style="font-size:1.1rem;text-align:center;flex-grow:1;">To create a vibrant, thriving grocery store that serves as a cornerstone for economic stability in underserved communities. By making nutritious and affordable food accessible to all, we aim to empower individuals to lead healthier lives while fostering local prosperity. Our commitment to sustainability drives our operations, ensuring that every product we offer is sourced responsibly, with an emphasis on environmental stewardship. Above all, we champion entrepreneurs, providing a platform to showcase and uplift their businesses, thus building a more equitable and resilient economy for future generations.</p>
+                    <div class="section-card bg-alt p-2 flex-1 minw-400 maxw-650 text-center flex-col justify-start items-center">
+            <h2 class="text-brand text-center">Vision</h2>
+                        <p class="fs-11 text-center flex-grow">To create a vibrant, thriving grocery store that serves as a cornerstone for economic stability in underserved communities. By making nutritious and affordable food accessible to all, we aim to empower individuals to lead healthier lives while fostering local prosperity. Our commitment to sustainability drives our operations, ensuring that every product we offer is sourced responsibly, with an emphasis on environmental stewardship. Above all, we champion entrepreneurs, providing a platform to showcase and uplift their businesses, thus building a more equitable and resilient economy for future generations.</p>
                     </div>
                 </div>
             </div>
@@ -1014,20 +1043,20 @@
         <!-- Objectives Section -->
     <section id="objectives" class="section-padding bg-alt">
       <div class="container max-w-1200 centered">
-                    <div class="section-card bg-white" style="padding:2rem;margin:auto;text-align:center;max-width:1200px;">
-                    <h2 style="color:#387f2f;">Our Objectives</h2>
-                        <div style="display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;align-items:stretch;margin-top:2rem;">
-                        <div class="section-card bg-alt" style="padding:1.5rem;max-width:600px;flex:1;display:flex;flex-direction:column;text-align:center;">
-                            <h3 style="color:#387f2f;">Accessible, Healthy, Affordable Groceries</h3>
-                            <p style="flex-grow:1;">We ensure every family, regardless of income, has access to nutritious, fresh, and affordable food. We offer healthy options, educational resources, and empower families to make informed choices for their well-being.</p>
+                    <div class="section-card bg-white p-2 centered text-center max-w-1200">
+          <h2 class="text-brand">Our Objectives</h2>
+                        <div class="flex-center flex-wrap gap-2 items-stretch mt-2rem">
+                        <div class="section-card bg-alt p-15 maxw-600 flex-1 text-center flex-col">
+              <h3 class="text-brand">Accessible, Healthy, Affordable Groceries</h3>
+                            <p class="flex-grow">We ensure every family, regardless of income, has access to nutritious, fresh, and affordable food. We offer healthy options, educational resources, and empower families to make informed choices for their well-being.</p>
                         </div>
-                        <div class="section-card bg-alt" style="padding:1.5rem;max-width:600px;flex:1;display:flex;flex-direction:column;text-align:center;">
-                            <h3 style="color:#387f2f;">Empower the Local Community</h3>
-                            <p style="flex-grow:1;">We create sustainable jobs, prioritize local hiring, and supporting entrepreneurs. Our vision is to increase ownership in the food industry and build generational wealth through mentorship and economic mobility.</p>
+                        <div class="section-card bg-alt p-15 maxw-600 flex-1 text-center flex-col">
+              <h3 class="text-brand">Empower the Local Community</h3>
+                            <p class="flex-grow">We create sustainable jobs, prioritize local hiring, and supporting entrepreneurs. Our vision is to increase ownership in the food industry and build generational wealth through mentorship and economic mobility.</p>
                         </div>
-                        <div class="section-card bg-alt" style="padding:1.5rem;max-width:600px;flex:1;display:flex;flex-direction:column;text-align:center;">
-                            <h3 style="color:#387f2f;">Promote Sustainability</h3>
-                            <p style="flex-grow:1;">We source locally, reduce waste, and operate with eco-friendly practices. We partner with other locally owned businesses and educate our community on sustainability for a healthier future.</p>
+                        <div class="section-card bg-alt p-15 maxw-600 flex-1 text-center flex-col">
+              <h3 class="text-brand">Promote Sustainability</h3>
+                            <p class="flex-grow">We source locally, reduce waste, and operate with eco-friendly practices. We partner with other locally owned businesses and educate our community on sustainability for a healthier future.</p>
                         </div>
                     </div>
                 </div>
@@ -1310,7 +1339,7 @@
                     
                     
                     <!-- Direct Email Option -->
-          <div class="flex-col justify-start items-start flex-1 minw-300 maxw-500">
+          <div class="flex-col justify-start items-start flex-1 minw-300 maxw-500 contact-side">
             <h4 class="brand-text mb-1">Or Email Us Directly</h4>
             <p class="mb-15">Send your message directly to our team:</p>
                 <a href="mailto:info@melawholefoodsva.com?subject=Inquiry from Mela Whole Foods Website" class="mailto-link">
@@ -1389,6 +1418,9 @@
                         <li><a href="#volunteer">Volunteer</a></li>
                         <li><a href="#donate">Donate</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="/partners.html">Partners</a></li>
+                        <li><a href="/annual-reports.html">Annual Reports</a></li>
                     </ul>
                 </div>
         <div class="footer-section">
