@@ -1307,7 +1307,8 @@
                 
                 <div class="contact-content">
                     <!-- Contact Form - Optimized -->
-                    <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwfGF82oox57cznCTTJ8EtflhJJxYrMhVzcQSdfSmF7-EOKPIw_AaOsXhuAXbs7sxa9/exec" method="POST">
+                    <form id="contactForm" class="contact-form" action="https://script.google.com/macros/s/AKfycbwfGF82oox57cznCTTJ8EtflhJJxYrMhVzcQSdfSmF7-EOKPIw_AaOsXhuAXbs7sxa9/exec" method="POST" target="formFrame" novalidate>
+                      <input type="text" name="website" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true">
                       <div class="form-group">
                         <input type="text" name="Name" placeholder="Your Name" required aria-required="true" autocomplete="name">
                       </div>
@@ -1336,6 +1337,7 @@
                         <button type="submit" class="btn btn-primary">Send</button>
                       </div>
                     </form>
+                    <iframe name="formFrame" id="formFrame" title="hidden form submission" class="hidden"></iframe>
                     
                     
                     <!-- Direct Email Option -->
@@ -1444,6 +1446,9 @@
             <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
         </svg>
     </div>
+
+  <!-- Toast notifications -->
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true" class="toast hidden"></div>
 
     <script>
       function toggleNavMenu() {

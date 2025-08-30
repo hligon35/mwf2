@@ -915,3 +915,8 @@ html{scroll-behavior:auto}
   .contact-form { width: 100%; max-width: 100%; padding: 1.75rem; border-radius: 10px }
   .contact-side { align-self: stretch }
 }
+
+/* Toast notifications */
+.toast{ position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#fff; color:#333; border:1px solid #ddd; box-shadow:0 6px 20px rgba(0,0,0,0.15); padding:0.75rem 1rem; border-radius:8px; z-index:3000; max-width:90vw }
+.toast.success{ border-color:#b7e1b0; background:#f5fbf4; color:#215519 }
+.toast.error{ border-color:#f5c6cb; background:#fff5f5; color:#8a1f2d }

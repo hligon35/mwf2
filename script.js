@@ -79,7 +79,58 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Contact form now posts directly to Google Apps Script; no JS interception.
+// Contact form UX: submit via hidden iframe, show a toast on success/error
+document.addEventListener('DOMContentLoaded', function(){
+    const form = document.getElementById('contactForm');
+    const frame = document.getElementById('formFrame');
+    const toast = document.getElementById('toast');
+    if(!form || !frame || !toast) return;
+
+    let submittedAt = 0;
+    let timeoutId;
+
+    function showToast(message, type='success', duration=4500){
+        toast.textContent = message;
+        toast.classList.remove('hidden','success','error');
+        toast.classList.add(type);
+        // ensure visible
+        toast.style.display = 'block';
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            toast.classList.add('hidden');
+            toast.style.display = 'none';
+        }, duration);
+    }
+
+    form.addEventListener('submit', function(){
+        submittedAt = Date.now();
+        // fallback timeout if GAS returns plain OK with no HTML
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            showToast('Thanks! Your message was sent (pending email delivery).', 'success');
+            form.reset();
+        }, 6000);
+    });
+
+    frame.addEventListener('load', function(){
+        // Frame loaded – treat as success unless content indicates error
+        try {
+            const doc = frame.contentDocument || frame.contentWindow?.document;
+            const bodyText = (doc && doc.body) ? doc.body.textContent.trim() : '';
+            // Common responses from Apps Script: "OK", JSON, or HTML
+            if (/error|failed|unauthorized|forbidden/i.test(bodyText)) {
+                clearTimeout(timeoutId);
+                showToast('Sorry, there was a problem sending your message. Please try again.', 'error');
+                return;
+            }
+        } catch(e) {
+            // Cross-origin restrictions – assume success if no error thrown earlier
+        }
+        clearTimeout(timeoutId);
+        showToast('Thanks! Your message was sent successfully.', 'success');
+        form.reset();
+    });
+});
 
 // Header scroll effect
 window.addEventListener('scroll', function() {
