@@ -638,17 +638,29 @@ section[id] {
 
 /* Contact and Forms */
 .contact{padding:5rem 0;background:#fff}
-.contact-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-content{display:grid;grid-template-columns:3fr 1fr;gap:2rem;align-items:center}
 .contact-info{display:flex;flex-direction:column;gap:2rem}
 .contact-item h3{color:#387f2f;margin-bottom:1rem}
 .contact-item p,.contact-item address{color:#666;line-height:1.8;font-style:normal}
 .contact-item a{color:#387f2f;text-decoration:none}
 .contact-item a:hover{text-decoration:underline}
-.contact-form{background:#f8f9fa;padding:2rem;border-radius:10px}
+.contact-form{background:#f8f9fa;padding:2.5rem;border-radius:12px;max-width:675px;width:100%}
 .contact-form h3{color:#387f2f;margin-bottom:1.5rem}
 .form-group{margin-bottom:1.5rem}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:5px;font-family:inherit;font-size:1rem}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#387f2f}
+
+/* Style only the subject dropdown */
+#topic{
+  width:100%;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:5px;
+  font-family:inherit;
+  font-size:1rem;
+  background-color:#fff;
+}
+#topic:focus{outline:none;border-color:#387f2f}
 
 /* Footer */
 .footer{background:#387f2f;color:#fff;padding:3rem 0 1rem}
@@ -667,6 +679,9 @@ section[id] {
 .social-icon{width:40px;height:40px;object-fit:contain;background:rgba(255,255,255,.12);border-radius:12px;padding:4px;transition:opacity .3s,transform .3s,filter .3s;filter:drop-shadow(0 0 .5px #ef9509) drop-shadow(0 0 2px #ef9509)}
 .social-links a:hover .social-icon{opacity:.7;transform:scale(1.1)}
 .footer-bottom{border-top:1px solid #2d6525;padding-top:1rem;text-align:center;color:#ef9509}
+
+/* Ensure footer email link is visible on green background */
+.footer-section a.mailto-footer { color: #fff; text-decoration: underline; font-size: 1.15rem }
 
 /* Responsive Design */
 @media(max-width:768px){
@@ -857,3 +872,11 @@ html{scroll-behavior:auto}
 .minw-300{ min-width:300px }
 .maxw-500{ max-width:500px }
 .justify-center{ justify-content:center }
+.justify-start{ justify-content:flex-start }
+.items-start{ align-items:flex-start }
+.text-left{ text-align:left }
+
+/* Mobile override: keep the larger contact form responsive */
+@media (max-width: 900px) {
+  .contact-form { max-width: 100%; padding: 1.75rem; border-radius: 10px }
+}

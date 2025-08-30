@@ -1276,64 +1276,47 @@
                     <p>We're here to help and answer any questions you may have</p>
                 </div>
                 
-                <div class="contact-content" style="display:flex;flex-direction:row;align-items:flex-start;justify-content:center;gap:2rem;flex-wrap:wrap;">
+                <div class="contact-content">
                     <!-- Contact Form - Optimized -->
-                    <form action="https://script.google.com/a/macros/melawholefoodsva.com/s/AKfycbxC3Tx0FH4V-t-mtGbomH_UPlPiprNwjDfjcRcWY4_PAxKsbUPb1WU9scn4EFy1u2bFqg/exec" method="POST">
-                      <input type="text" name="Name" placeholder="Your Name" required>
-                      <input type="email" name="Email" placeholder="Your Email" required>
-
-                      <label for="topic">Topic</label>
-                      <select id="topic" name="Topic" required>
-                        <option value="">-- Select a topic --</option>
-                        <option value="Volunteer Opportunities">Volunteer Opportunities</option>
-                        <option value="Food or Monetary Donation">Food or Monetary Donation</option>
-                        <option value="Request Services">Request Services</option>
-                        <option value="Other">Partnership Inquiry</option>
-                        <option value="Other">Other</option>
-                      </select>
-
-                      <textarea name="Message" placeholder="Your Message"></textarea>
-                      <button type="submit">Send</button>
+        <form class="contact-form" action="https://script.google.com/a/macros/melawholefoodsva.com/s/AKfycbxC3Tx0FH4V-t-mtGbomH_UPlPiprNwjDfjcRcWY4_PAxKsbUPb1WU9scn4EFy1u2bFqg/exec" method="POST">
+                      <div class="form-group">
+                        <input type="text" name="Name" placeholder="Your Name" required aria-required="true" autocomplete="name">
+                      </div>
+                      <div class="form-group">
+                        <input type="email" name="Email" placeholder="Your Email" required aria-required="true" autocomplete="email">
+                      </div>
+                      <div class="form-group">
+                        <label for="phone" class="sr-only">Phone</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="Your Phone" aria-required="false" autocomplete="tel" inputmode="tel">
+                      </div>
+                      <div class="form-group">
+                        <label for="topic" class="sr-only">Topic</label>
+                        <select id="topic" name="Topic" required aria-required="true">
+          <option value="">— — — Select a topic — — —</option>
+                          <option value="Volunteer Opportunities">Volunteer Opportunities</option>
+                          <option value="Food or Monetary Donation">Food or Monetary Donation</option>
+                          <option value="Request Services">Request Services</option>
+          <option value="Partnership Inquiry">Partnership Inquiry</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <textarea name="Message" placeholder="Your Message" rows="5"></textarea>
+                      </div>
+                      <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                      </div>
                     </form>
-                    <script>
-                    const ENDPOINT = 'https://portal.getsparqd.com/api/contact';
-                    document.getElementById('contactForm').addEventListener('submit', async (e) => {
-                        e.preventDefault();
-                        const f = e.target;
-                        const data = {
-                            name: f.name.value.trim(),
-                            email: f.email.value.trim(),
-                            phone: f.phone.value.trim(),
-                            subject: f.subject.value.trim() || 'Contact - Mela Whole Foods VA',
-                            message: f.message.value.trim(),
-                            site: 'melawholefoodsva.com',
-                            hp: f.hp.value || ''
-                        };
-                        const resEl = document.getElementById('result');
-                        try {
-                            const r = await fetch(ENDPOINT, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(data)
-                            });
-                            if (!r.ok) throw new Error('HTTP ' + r.status);
-                            resEl.textContent = 'Thanks—your message was sent.';
-                            f.reset();
-                        } catch (err) {
-                            resEl.textContent = 'Sorry, we could not send your message. Please try again.';
-                            console.error('Contact error:', err);
-                        }
-                    });
-                    </script>
+                    
                     
                     <!-- Direct Email Option -->
-          <div class="flex-col justify-center text-center flex-1 minw-300 maxw-500">
+          <div class="flex-col justify-start items-start flex-1 minw-300 maxw-500">
             <h4 class="brand-text mb-1">Or Email Us Directly</h4>
             <p class="mb-15">Send your message directly to our team:</p>
                 <a href="mailto:info@melawholefoodsva.com?subject=Inquiry from Mela Whole Foods Website" class="mailto-link">
                   info@melawholefoodsva.com
                 </a>
-                    <div class="section-card bg-alt p-1 rounded-8 mt-1">
+                    <div class="section-card bg-alt p-1 rounded-8 mt-1 text-left items-start">
             <p class="muted-text">We typically respond within 24 hours during business days.</p>
           </div>
                     </div>
