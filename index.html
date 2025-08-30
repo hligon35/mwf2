@@ -1278,49 +1278,28 @@
                 
                 <div class="contact-content" style="display:flex;flex-direction:row;align-items:flex-start;justify-content:center;gap:2rem;flex-wrap:wrap;">
                     <!-- Contact Form - Optimized -->
-                    <form class="contact-form" method="POST" action="https://yourdomain.com/contact-handler.php" novalidate style="flex:1;min-width:300px;max-width:500px;" aria-label="Contact form">
-                        <h3 style="text-align:center;">Send us a Message</h3>
-                        <!-- Honeypot field for spam protection -->
-                        <div style="display:none;">
-                          <label for="website">Website</label>
-                          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-                          <!-- Site identifier for multi-site handler -->
-                          <input type="hidden" name="site" value="melawholefoodsva.com">
-                        </div>
-            <div class="form-group">
-              <label for="name" class="sr-only">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your full name" required aria-required="true" autocomplete="name">
-            </div>
-            <div class="form-group">
-              <label for="email" class="sr-only">Your Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-required="true" autocomplete="email">
-            </div>
-            <div class="form-group">
-              <label for="topic" class="sr-only">Select a Topic</label>
-              <select id="topic" name="topic" required aria-required="true">
-                <option value="">Select a topic...</option>
-                <option value="volunteer">Volunteer Opportunities</option>
-                <option value="donation">Food or Monetary Donation</option>
-                <option value="services">Request Services</option>
-                <option value="partnership">Partnership Inquiry</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message" class="sr-only">Your Message</label>
-              <textarea id="message" name="message" placeholder="Type your message here..." rows="5" required aria-required="true"></textarea>
-            </div>
-                        <div style="display:flex;justify-content:center;align-items:center;width:100%;margin-top:1rem;">
-                          <button type="submit" class="btn btn-primary" style="margin-left:auto;margin-right:auto;">Send Message</button>
-                        </div>
-                        <div id="form-success" style="display:none;color:#387f2f;margin-top:1rem;font-weight:600;" role="status" aria-live="polite">Thank you! Your message has been sent.</div>
-                        <div id="form-error" style="display:none;color:#d32f2f;margin-top:1rem;font-weight:600;" role="alert" aria-live="assertive">Sorry, there was an error. Please try again.</div>
+                    <form action="https://script.google.com/a/macros/melawholefoodsva.com/s/AKfycbxC3Tx0FH4V-t-mtGbomH_UPlPiprNwjDfjcRcWY4_PAxKsbUPb1WU9scn4EFy1u2bFqg/exec" method="POST">
+                      <input type="text" name="Name" placeholder="Your Name" required>
+                      <input type="email" name="Email" placeholder="Your Email" required>
+
+                      <label for="topic">Topic</label>
+                      <select id="topic" name="Topic" required>
+                        <option value="">-- Select a topic --</option>
+                        <option value="Volunteer Opportunities">Volunteer Opportunities</option>
+                        <option value="Food or Monetary Donation">Food or Monetary Donation</option>
+                        <option value="Request Services">Request Services</option>
+                        <option value="Other">Partnership Inquiry</option>
+                        <option value="Other">Other</option>
+                      </select>
+
+                      <textarea name="Message" placeholder="Your Message"></textarea>
+                      <button type="submit">Send</button>
                     </form>
                     
                     <!-- Direct Email Option -->
-                    <div style="flex:1;min-width:300px;max-width:500px;text-align:center;display:flex;flex-direction:column;justify-content:center;">
-                        <h4 style="color:#387f2f;margin-bottom:1rem;">Or Email Us Directly</h4>
-                        <p style="margin-bottom:1.5rem;">Send your message directly to our team:</p>
+          <div class="flex-col justify-center text-center flex-1 minw-300 maxw-500">
+            <h4 class="brand-text mb-1">Or Email Us Directly</h4>
+            <p class="mb-15">Send your message directly to our team:</p>
                 <a href="mailto:info@melawholefoodsva.com?subject=Inquiry from Mela Whole Foods Website" class="mailto-link">
                   info@melawholefoodsva.com
                 </a>
@@ -1368,7 +1347,7 @@
                 <div class="footer-section">
                     <h3>Mela Whole Foods</h3>
                     <p>Serving our community with dignity, respect, and compassion. No one should go hungry.</p>
-                    <div class="social-links" style="display:flex;justify-content:center;align-items:center;margin-top:1rem;gap:1rem;">
+                    <div class="social-links">
                         <!-- <a href="https://youtube.com/melawholefoods" aria-label="Visit our YouTube channel" rel="noopener noreferrer" target="_blank">
                             <img src="images/SocialIcons/Youtube.png" alt="YouTube" class="social-icon" width="40" height="40" loading="lazy">
                         </a>

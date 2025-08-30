@@ -185,9 +185,9 @@ section[id] {
 
 /* Footer optimization */
 .footer-section ul {
-  columns: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
+  columns: 2;
   column-gap: 2rem;
   margin: 0;
   padding: 0;
@@ -468,6 +468,21 @@ section[id] {
 .hero-buttons {
   display: flex;
   gap: 1rem;
+}
+
+/* Desktop: center hero heading and paragraph */
+@media (min-width: 901px) {
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+  }
+  .hero-content h1,
+  .hero-content p {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .hero-image {
@@ -835,3 +850,10 @@ html{scroll-behavior:auto}
 .p-1 { padding: 1rem }
 .rounded-8 { border-radius: 8px }
 .muted-text { font-size:0.9rem; color:#666; margin:0 }
+.mb-1{ margin-bottom:1rem }
+.mb-15{ margin-bottom:1.5rem }
+.brand-text{ color:#387f2f }
+.flex-1{ flex:1 }
+.minw-300{ min-width:300px }
+.maxw-500{ max-width:500px }
+.justify-center{ justify-content:center }

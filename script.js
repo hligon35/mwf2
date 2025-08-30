@@ -79,41 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Form submission handler
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const formObject = Object.fromEntries(formData);
-            
-            // Simple form validation
-            const requiredFields = this.querySelectorAll('[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    field.style.borderColor = '#f44336';
-                    isValid = false;
-                } else {
-                    field.style.borderColor = '#ddd';
-                }
-            });
-            
-            if (isValid) {
-                // Here you would typically send the data to your server
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-            } else {
-                alert('Please fill in all required fields.');
-            }
-        });
-    }
-});
+// Contact form now posts directly to Google Apps Script; no JS interception.
 
 // Header scroll effect
 window.addEventListener('scroll', function() {
