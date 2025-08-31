@@ -86,6 +86,10 @@ document.addEventListener('DOMContentLoaded', function(){
     const toast = document.getElementById('toast');
     if(!form || !frame || !toast) return;
 
+    // Optional: secondary endpoint to ensure email delivery (e.g., Cloudflare Worker)
+    // Leave empty to disable. When set, a parallel POST is sent as JSON.
+    const SECONDARY_ENDPOINT = '';
+
     let submittedAt = 0;
     let timeoutId;
 
@@ -104,6 +108,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
     form.addEventListener('submit', function(){
         submittedAt = Date.now();
+        // Fire-and-forget POST to secondary endpoint for email delivery
+        try {
+            if (SECONDARY_ENDPOINT) {
+                const fd = new FormData(form);
+                const payload = Object.fromEntries(fd.entries());
+                fetch(SECONDARY_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                    mode: 'cors',
+                    keepalive: true
+                }).catch(() => {/* ignore */});
+            }
+        } catch(_) {}
         // fallback timeout if GAS returns plain OK with no HTML
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {

@@ -1,24 +1,35 @@
 // Cloudflare Worker for handling contact form submissions
-// Deploy this to Cloudflare Workers and use the worker URL as your form action
+// Deploy to Cloudflare Workers. You can keep your website posting to Google Apps Script for Sheets
+// and set this Worker as a secondary endpoint to ensure email delivery.
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
 
-async function handleRequest(request) {
-  // CORS headers
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': 'https://melawholefoodsva.com', // Replace with your domain
+function buildCorsHeaders(request) {
+  const origin = request.headers.get('Origin') || ''
+  const allowed = [
+    'https://melawholefoodsva.com',
+    'https://www.melawholefoodsva.com',
+    'http://localhost:3000',
+    'http://127.0.0.1:5500'
+  ]
+  const allowOrigin = allowed.includes(origin) ? origin : 'https://melawholefoodsva.com'
+  return {
+    'Access-Control-Allow-Origin': allowOrigin,
+    'Vary': 'Origin',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type'
   }
+}
 
-  // Handle preflight request
+async function handleRequest(request) {
+  const corsHeaders = buildCorsHeaders(request)
+
   if (request.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders })
   }
 
-  // Only allow POST requests
   if (request.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
@@ -27,22 +38,39 @@ async function handleRequest(request) {
   }
 
   try {
-    // Parse form data
-    const formData = await request.formData()
-    
-    // Honeypot spam protection
-    if (formData.get('website')) {
+    // Parse JSON body or multipart form-data
+    let payload = {}
+    const contentType = request.headers.get('Content-Type') || ''
+    if (contentType.includes('application/json')) {
+      payload = await request.json()
+    } else if (contentType.includes('form')) {
+      const fd = await request.formData()
+      for (const [k, v] of fd.entries()) {
+        payload[k] = typeof v === 'string' ? v : ''
+      }
+    }
+
+    // Honeypot spam protection (support both 'website' and 'Website')
+    if ((payload.website || payload.Website || '').toString().trim() !== '') {
       return new Response(JSON.stringify({ error: 'Spam detected' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' }
       })
     }
 
-    // Extract and validate form fields
-    const name = formData.get('name')?.trim()
-    const email = formData.get('email')?.trim()
-    const topic = formData.get('topic')?.trim()
-    const message = formData.get('message')?.trim()
+    // Support both lowercase and capitalized field names from the site
+    const getField = (obj, names) => {
+      for (const n of names) {
+        if (obj[n] != null) return String(obj[n]).trim()
+      }
+      return ''
+    }
+
+    const name = getField(payload, ['name', 'Name'])
+    const email = getField(payload, ['email', 'Email'])
+    const topic = getField(payload, ['topic', 'Topic'])
+    const message = getField(payload, ['message', 'Message'])
+    const phone = getField(payload, ['phone', 'Phone'])
 
     // Validation
     const errors = []
@@ -58,12 +86,12 @@ async function handleRequest(request) {
       })
     }
 
-    // Create email content
     const emailContent = `
 New submission from MelaWholeFoodsVA.com:
 
 Name: ${name}
 Email: ${email}
+Phone: ${phone || 'N/A'}
 Topic: ${topic}
 
 Message:
@@ -75,17 +103,14 @@ IP Address: ${request.headers.get('CF-Connecting-IP')}
 User Agent: ${request.headers.get('User-Agent')}
     `
 
-    // Send email using Cloudflare Email Workers API or your preferred email service
-    // For this example, we'll use a webhook to send the email
+    // Send email via EmailJS (replace with your credentials or switch to SendGrid/Mailgun/Resend)
     const emailResponse = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        service_id: 'YOUR_EMAILJS_SERVICE_ID', // Replace with your EmailJS service ID
-        template_id: 'YOUR_EMAILJS_TEMPLATE_ID', // Replace with your EmailJS template ID
-        user_id: 'YOUR_EMAILJS_USER_ID', // Replace with your EmailJS user ID
+        service_id: 'YOUR_EMAILJS_SERVICE_ID',
+        template_id: 'YOUR_EMAILJS_TEMPLATE_ID',
+        user_id: 'YOUR_EMAILJS_USER_ID',
         template_params: {
           to_email: 'info@melawholefoodsva.com',
           from_name: name,
@@ -97,7 +122,8 @@ User Agent: ${request.headers.get('User-Agent')}
     })
 
     if (!emailResponse.ok) {
-      throw new Error('Failed to send email')
+      const text = await emailResponse.text().catch(() => '')
+      throw new Error(`Failed to send email: ${emailResponse.status} ${text}`)
     }
 
     return new Response(JSON.stringify({ success: true, message: 'Message sent successfully' }), {
