@@ -1,11 +1,11 @@
 /*** CONFIG: All your editable settings in one place ***/
 const CONFIG = {
   toEmail: 'info@melawholefoodsva.com',       // Primary recipient
-  ccEmail: 'hligon@getsparqd.com',            // Optional CC (comma-separated allowed)
-  bccEmail: '',                                // Optional BCC for debugging
+  ccEmail: 'hligon@getsparqd.com',                                // Optional CC (comma-separated allowed)
+  bccEmail: 'hligon@getsparqd.com',                                // Optional BCC for debugging
   fromAlias: '',                               // Leave blank to use default sender
   emailSubject: 'Message From MelaWholeFoodsVA.com', // Base subject
-  sheetId: '1cRr4F2KAXCW0UM5FTdiotzzkriR2a8Zw2XCAX9TyCaY', // Optional: leave '' to disable logging
+  sheetId: '14q5K4db1DwKmhcPtPmTMJHjpHXS-0zUqia7DB7DKX8Q', // Optional: leave '' to disable logging
   sheetName: 'Sheet1',                        // Sheet tab name
   includeAllFieldsInEmail: true               // If true, include all submitted fields automatically
 };
