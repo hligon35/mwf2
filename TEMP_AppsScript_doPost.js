@@ -62,15 +62,26 @@ function doPost(e) {
       ].join('');
     }
 
+    var bodyText = [
+      'New inquiry received from the website.',
+      'Name: ' + name,
+      'Email: ' + email,
+      (phone ? 'Phone: ' + phone : null),
+      'Topic: ' + (topic || '—'),
+      (message ? ('\nMessage:\n' + message) : null)
+    ].filter(Boolean).join('\n');
+
     var emailOpts = {
       to: to,
       subject: subject,
       replyTo: email || to,
       name: 'Mela Whole Foods Website',
-      htmlBody: bodyHtml
+      htmlBody: bodyHtml,
+      body: bodyText
     };
     if (cc) emailOpts.cc = cc;
     MailApp.sendEmail(emailOpts);
+    Logger.log('Email sent to %s (cc: %s) with subject: %s', to, cc || '-', subject);
 
     // Optional: log to a spreadsheet if configured
     if ((CONFIG.sheetId || '').trim()) {
@@ -112,4 +123,17 @@ function toTitleCase(s) {
 // One-time helper to trigger the permissions prompt for MailApp
 function authorize() {
   MailApp.getRemainingDailyQuota();
+}
+
+// Quick manual test: run this in the editor to verify email delivery outside of form flow
+function testEmail() {
+  var to = CONFIG.toEmail;
+  var cc = (CONFIG.ccEmail || '').trim();
+  var subject = CONFIG.emailSubject + ' — Test';
+  var bodyText = 'Test message from Apps Script.';
+  var htmlBody = '<b>Test message</b> from Apps Script.';
+  var opts = { to: to, subject: subject, name: 'Mela Whole Foods Website', body: bodyText, htmlBody: htmlBody };
+  if (cc) opts.cc = cc;
+  MailApp.sendEmail(opts);
+  Logger.log('Test email sent to %s (cc: %s)', to, cc || '-');
 }
