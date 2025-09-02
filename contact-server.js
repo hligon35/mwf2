@@ -34,7 +34,7 @@ const limiter = rateLimit({
 app.use('/contact', limiter);
 
 // Create nodemailer transporter
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
     host: config.smtpHost,
     port: config.smtpPort,
     secure: false, // true for 465, false for other ports
