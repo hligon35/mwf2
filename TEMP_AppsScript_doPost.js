@@ -2,6 +2,8 @@
 const CONFIG = {
   toEmail: 'info@melawholefoodsva.com',       // Primary recipient
   ccEmail: 'hligon@getsparqd.com',            // Optional CC (comma-separated allowed)
+  bccEmail: '',                                // Optional BCC for debugging
+  fromAlias: '',                               // Optional Gmail alias configured in the script owner's Gmail
   emailSubject: 'Message From MelaWholeFoodsVA.com', // Base subject
   sheetId: '1cRr4F2KAXCW0UM5FTdiotzzkriR2a8Zw2XCAX9TyCaY', // Optional: leave '' to disable logging
   sheetName: 'Sheet1',                        // Sheet tab name
@@ -32,7 +34,7 @@ function doPost(e) {
 
     var to = CONFIG.toEmail;
     var cc = (CONFIG.ccEmail || '').trim();
-    var subject = CONFIG.emailSubject + ' — ' + (topic || 'No topic');
+  var subject = CONFIG.emailSubject + ' — ' + (topic || 'No topic') + ' — ' + new Date().toISOString();
 
     // Build HTML email body
     var bodyHtml;
@@ -80,8 +82,24 @@ function doPost(e) {
       body: bodyText
     };
     if (cc) emailOpts.cc = cc;
-    MailApp.sendEmail(emailOpts);
-    Logger.log('Email sent to %s (cc: %s) with subject: %s', to, cc || '-', subject);
+    if ((CONFIG.bccEmail || '').trim()) emailOpts.bcc = CONFIG.bccEmail.trim();
+
+    // Prefer GmailApp with alias if provided and available; fallback to MailApp
+    var used = 'MailApp';
+    if ((CONFIG.fromAlias || '').trim()) {
+      try {
+        var gmailOpts = Object.assign({}, emailOpts, { from: CONFIG.fromAlias.trim() });
+        GmailApp.sendEmail(gmailOpts.to, gmailOpts.subject, gmailOpts.body, gmailOpts);
+        used = 'GmailApp (alias)';
+      } catch (aliasErr) {
+        MailApp.sendEmail(emailOpts);
+        used = 'MailApp (alias failover)';
+      }
+    } else {
+      MailApp.sendEmail(emailOpts);
+    }
+
+    Logger.log('Email sent via %s to %s (cc: %s, bcc: %s) subject: %s', used, to, cc || '-', (CONFIG.bccEmail||'-'), subject);
 
     // Optional: log to a spreadsheet if configured
     if ((CONFIG.sheetId || '').trim()) {
