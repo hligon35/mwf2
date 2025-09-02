@@ -1,8 +1,8 @@
 /*** CONFIG: All your editable settings in one place ***/
 const CONFIG = {
   toEmail: 'info@melawholefoodsva.com',       // Primary recipient
-  ccEmail: 'hligon@getsparqd.com',                                // Optional CC (comma-separated allowed)
-  bccEmail: 'hligon@getsparqd.com',                                // Optional BCC for debugging
+  ccEmail: '',                                // Optional CC (comma-separated allowed)
+  bccEmail: '',                                // Optional BCC for debugging
   fromAlias: '',                               // Leave blank to use default sender
   emailSubject: 'Message From MelaWholeFoodsVA.com', // Base subject
   sheetId: '14q5K4db1DwKmhcPtPmTMJHjpHXS-0zUqia7DB7DKX8Q', // Optional: leave '' to disable logging
@@ -32,9 +32,16 @@ function doPost(e) {
       return HtmlService.createHtmlOutput('ERROR');
     }
 
-    var to = CONFIG.toEmail;
-    var cc = (CONFIG.ccEmail || '').trim();
-  var subject = CONFIG.emailSubject + ' — ' + (topic || 'No topic') + ' — ' + new Date().toISOString();
+  var to = (CONFIG.toEmail || '').trim();
+  var ccList = (CONFIG.ccEmail || '').split(',').map(function(s){return s.trim()}).filter(String);
+  var bccList = (CONFIG.bccEmail || '').split(',').map(function(s){return s.trim()}).filter(String);
+  // de-duplicate recipients
+  var seen = {}; seen[to] = true;
+  ccList = ccList.filter(function(addr){ if(!addr || seen[addr]) return false; seen[addr]=true; return true; });
+  bccList = bccList.filter(function(addr){ if(!addr || seen[addr]) return false; seen[addr]=true; return true; });
+  var cc = ccList.join(',');
+  var bcc = bccList.join(',');
+  var subject = CONFIG.emailSubject + ' — ' + (topic || 'No topic');
 
     // Build HTML email body
     var bodyHtml;
@@ -81,8 +88,8 @@ function doPost(e) {
       htmlBody: bodyHtml,
       body: bodyText
     };
-    if (cc) emailOpts.cc = cc;
-    if ((CONFIG.bccEmail || '').trim()) emailOpts.bcc = CONFIG.bccEmail.trim();
+  if (cc) emailOpts.cc = cc;
+  if (bcc) emailOpts.bcc = bcc;
 
   // Quick quota log (optional, visible in Executions logs)
   try { Logger.log('Remaining MailApp quota: %s', MailApp.getRemainingDailyQuota()); } catch (qErr) {}
@@ -102,7 +109,7 @@ function doPost(e) {
       MailApp.sendEmail(emailOpts);
     }
 
-    Logger.log('Email sent via %s to %s (cc: %s, bcc: %s) subject: %s', used, to, cc || '-', (CONFIG.bccEmail||'-'), subject);
+  Logger.log('Email sent via %s to %s (cc: %s, bcc: %s) subject: %s', used, to, cc || '-', (bcc||'-'), subject);
 
     // Optional: log to a spreadsheet if configured
     if ((CONFIG.sheetId || '').trim()) {
