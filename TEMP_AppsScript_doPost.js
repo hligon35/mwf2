@@ -3,7 +3,7 @@ const CONFIG = {
   toEmail: 'info@melawholefoodsva.com',       // Primary recipient
   ccEmail: 'hligon@getsparqd.com',            // Optional CC (comma-separated allowed)
   bccEmail: '',                                // Optional BCC for debugging
-  fromAlias: '',                               // Optional Gmail alias configured in the script owner's Gmail
+  fromAlias: '',                               // Leave blank to use default sender
   emailSubject: 'Message From MelaWholeFoodsVA.com', // Base subject
   sheetId: '1cRr4F2KAXCW0UM5FTdiotzzkriR2a8Zw2XCAX9TyCaY', // Optional: leave '' to disable logging
   sheetName: 'Sheet1',                        // Sheet tab name
@@ -84,7 +84,10 @@ function doPost(e) {
     if (cc) emailOpts.cc = cc;
     if ((CONFIG.bccEmail || '').trim()) emailOpts.bcc = CONFIG.bccEmail.trim();
 
-    // Prefer GmailApp with alias if provided and available; fallback to MailApp
+  // Quick quota log (optional, visible in Executions logs)
+  try { Logger.log('Remaining MailApp quota: %s', MailApp.getRemainingDailyQuota()); } catch (qErr) {}
+
+  // Prefer GmailApp with alias if provided and available; fallback to MailApp
     var used = 'MailApp';
     if ((CONFIG.fromAlias || '').trim()) {
       try {
