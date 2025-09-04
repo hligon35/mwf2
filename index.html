@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
-    <meta name="msapplication-TileColor" content="#387f2f">
+  <meta name="msapplication-TileColor" content="#684a74">
     <title>Mela Whole Foods Mobile Grocery - Brilliance in Community Impact</title>
     <meta name="description" content="Mela Whole Foods Mobile Grocery serves food deserts with fresh, affordable groceries. Fighting hunger and building hope through community empowerment and nutritious food access.">
     <meta name="keywords" content="mobile grocery, food desert, community support, affordable groceries, food pantry, hunger relief, volunteer, donations, nonprofit, food assistance, fresh produce, Richmond VA">
@@ -45,29 +45,30 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"></noscript>
-    <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="styles-alt.css" as="style">
     
     <!-- Critical CSS for above-the-fold content -->
     <style>
         /* Critical reset and base styles */
         *{margin:0;padding:0;box-sizing:border-box}
         html,body{overflow-x:hidden;scroll-behavior:smooth}
-        body{font-family:'Open Sans',sans-serif;line-height:1.6;color:#333}
+  body{font-family:'Open Sans',sans-serif;line-height:1.6;color:var(--text)}
         
         /* Critical header styles */
         .header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);position:fixed;width:100%;top:0;z-index:1000}
         .navbar{width:100%;padding:0 40px;display:flex;justify-content:space-between;align-items:center}
         .logo{display:flex;align-items:center;gap:1rem}
         .logo-img{height:100px;width:auto;object-fit:contain}
-        .logo h1{color:#387f2f;font-size:1.8rem;font-weight:700;margin:0}
+  .logo h1{color:var(--brand);font-size:1.8rem;font-weight:700;margin:0}
         
         /* Critical hero styles */
-        .hero{margin-top:80px;padding:4rem 0;background:linear-gradient(135deg,#f5f9f2 0%,#f5f9f2 100%);display:flex;align-items:center;justify-content:center;min-height:50vh;max-width:1200px;margin-left:auto;margin-right:auto}
+  .hero{margin-top:80px;padding:4rem 0;background:linear-gradient(135deg,var(--bg-alt-2) 0%,var(--bg-alt) 100%);display:flex;align-items:center;justify-content:center;min-height:50vh;max-width:1200px;margin-left:auto;margin-right:auto}
         
         /* Critical button styles */
-        .btn{padding:12px 30px;text-decoration:none;border-radius:5px;font-weight:600;transition:all .3s;display:inline-block;border:none;cursor:pointer}
-        .btn-primary{background:#387f2f;color:#fff}
-        .btn-secondary{background:transparent;color:#387f2f;border:2px solid #387f2f}
+  .btn{padding:12px 30px;text-decoration:none;border-radius:5px;font-weight:600;transition:all .3s;display:inline-block;border:none;cursor:pointer}
+  .btn-primary{background:var(--brand);color:#fff}
+  .btn-secondary{background:transparent;color:var(--brand);border:2px solid var(--brand)}
         
         /* Critical responsive styles */
         @media (max-width: 900px) {
@@ -84,6 +85,7 @@
     </style>
     
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-alt.css">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     
     <!-- Additional optimized styles -->
@@ -625,7 +627,7 @@
           width: 32px;
           height: 4px;
           margin: 5px 0;
-          background: #387f2f;
+          background: var(--brand);
           border-radius: 2px;
           transition: 0.3s;
         }
@@ -652,7 +654,7 @@
           text-align: left !important;
         }
         .nav-menu a {
-          color: #387f2f !important;
+          color: var(--brand) !important;
           font-weight: 600 !important;
           font-size: 1.1rem !important;
           text-decoration: none !important;
@@ -662,7 +664,7 @@
           transition: background 0.2s;
         }
         .nav-menu a:hover {
-          background: #f5f9f2 !important;
+          background: var(--bg-alt) !important;
         }
         .hamburger {
           position: relative !important;
@@ -862,13 +864,13 @@
           right: 30px;
           width: 50px;
           height: 50px;
-          background: #387f2f;
+          background: var(--brand);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          box-shadow: 0 4px 12px rgba(56,127,47,0.3);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.25);
           transition: all 0.3s ease;
           z-index: 1000;
           opacity: 0;
@@ -879,9 +881,9 @@
           visibility: visible;
         }
         .scroll-arrow:hover {
-          background: #2d6626;
+          background: var(--brand-light);
           transform: scale(1.1);
-          box-shadow: 0 6px 20px rgba(56,127,47,0.4);
+          box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
         .scroll-arrow svg {
           width: 24px;
@@ -972,7 +974,7 @@
     }
     </script>
 </head>
-<body>
+<body class="theme-alt">
     <!-- Header -->
     <header class="header">
         <nav class="navbar" role="navigation" aria-label="Main navigation">
