@@ -629,7 +629,7 @@ section[id] {
 .donation-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:2rem}
 .donation-card{background:#fff;padding:2.5rem;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.1);display:flex;flex-direction:column;align-items:center;text-align:center}
 .donation-image{margin-bottom:1.5rem;overflow:hidden;border-radius:10px}
-.donation-image img{width:100%;height:400px;object-fit:cover;border-radius:10px}
+.donation-image img{width:100%;height:200px;object-fit:cover;border-radius:10px}
 .donation-card h3{color:#387f2f;font-size:1.5rem;margin-bottom:1rem}
 .donation-card p{margin-bottom:2rem;color:#666;line-height:1.8}
 .donation-amounts{display:flex;gap:1rem;margin-bottom:2rem}
@@ -863,6 +863,8 @@ html{scroll-behavior:auto}
 .social-links { display:flex; justify-content:center; align-items:center; margin-top:1rem; gap:1rem }
 .footer-links { list-style:none; padding:0; margin:0; text-align:center }
 .mailto-footer { color:#fff; text-decoration:underline; font-size:1.15rem }
+/* Brand-specific utility for purple accent (from Melapro.png) */
+.mela-purple{ color:#47048f !important }
 .p-1 { padding: 1rem }
 .p-2 { padding: 2rem }
 .p-15 { padding: 1.5rem }

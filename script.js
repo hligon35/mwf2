@@ -303,3 +303,45 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// Auto-highlight all standalone occurrences of "Mela" across visible text
+document.addEventListener('DOMContentLoaded', function() {
+    const targetWord = 'Mela';
+    const wordRegex = new RegExp(`(^|\\b)${targetWord}(\\b)`, 'g');
+
+    function shouldSkip(node){
+        if(!node) return true;
+        if(node.nodeType !== Node.ELEMENT_NODE) return false;
+        const tag = node.tagName;
+        // Skip script/style/noscript and already-highlighted nodes
+        if(tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return true;
+        if(node.classList && node.classList.contains('mela-purple')) return true;
+        return false;
+    }
+
+    function wrapWordInNode(node){
+        if(node.nodeType === Node.TEXT_NODE){
+            const text = node.nodeValue;
+            if(!text || text.indexOf(targetWord) === -1) return;
+            // Replace only standalone word occurrences, preserving surrounding text
+            const replaced = text.replace(wordRegex, (m, p1, p2) => `${p1}<span class="mela-purple">${targetWord}</span>${p2}`);
+            if(replaced !== text){
+                const wrapper = document.createElement('span');
+                wrapper.innerHTML = replaced;
+                node.parentNode.replaceChild(wrapper, node);
+            }
+            return;
+        }
+        if(shouldSkip(node)) return;
+        // Avoid deep replacement inside inputs, textareas, and iframes
+        const tag = node.tagName;
+        if(tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'IFRAME') return;
+        // Traverse children snapshot to avoid live collection issues during replacement
+        const children = Array.from(node.childNodes);
+        for(const child of children){
+            wrapWordInNode(child);
+        }
+    }
+
+    wrapWordInNode(document.body);
+});
