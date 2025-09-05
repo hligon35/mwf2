@@ -100,7 +100,14 @@
           column-gap: 2rem;
           margin: 0;
           padding: 0;
-          list-style: none;
+        }
+        /* Footer: make Quick Links single column on narrow screens */
+        @media (max-width: 600px) {
+          .footer-section ul {
+            -webkit-columns: 1;
+            -moz-columns: 1;
+            columns: 1;
+          }
         }
         .footer-section ul li {
           break-inside: avoid;
@@ -1386,7 +1393,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content flex-center max-w-1200 centered gap-3">
+            <div class="footer-content max-w-1200 centered gap-3">
                 <div class="footer-section">
                     <h3>Mela Whole Foods</h3>
                     <p>Serving our community with dignity, respect, and compassion. No one should go hungry.</p>

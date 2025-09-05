@@ -666,6 +666,8 @@ section[id] {
 /* Footer */
 .footer{background:#387f2f;color:#fff;padding:3rem 0 1rem}
 .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-bottom:2rem}
+/* Ensure footer uses grid even if utility classes add flex */
+.footer .footer-content{display:grid !important}
 .footer-section h3,.footer-section h4{margin-bottom:1rem;color:#ef9509}
 .footer-section p,.footer-section address{line-height:1.8;margin-bottom:1rem;font-style:normal}
 .footer-section ul{list-style:none}
@@ -723,6 +725,11 @@ section[id] {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+}
+
+/* Footer Quick Links: collapse to one column on small screens */
+@media (max-width: 600px) {
+  .footer-section ul { -webkit-columns: 1; -moz-columns: 1; columns: 1 }
 }
 
 @media(max-width:768px){
