@@ -11,6 +11,7 @@
     <meta name="keywords" content="mobile grocery, food desert, community support, affordable groceries, food pantry, hunger relief, volunteer, donations, nonprofit, food assistance, fresh produce, Richmond VA">
     <meta name="author" content="Mela Whole Foods">
     <link rel="canonical" href="https://melawholefoodsva.com/">
+  <!-- (Removed theme-color due to linter compatibility warning; optional enhancement) -->
     
     <!-- Performance hints -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -20,32 +21,49 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://melawholefoodsva.com/">
     <meta property="og:title" content="Mela Whole Foods Mobile Grocery - Community Impact">
     <meta property="og:description" content="Mobile grocery service bringing fresh, affordable food to underserved communities. Join our mission to fight hunger and empower neighborhoods.">
-    <meta property="og:image" content="https://melawholefoodsva.com/images/Melalogo.png">
+  <!-- SEO: Explicit locale helps parsers understand language/region -->
+  <meta property="og:locale" content="en_US">
+  <!-- SEO: Use consistent case in URL path to avoid case-sensitive 404s on some hosts -->
+  <meta property="og:image" content="https://melawholefoodsva.com/images/Melalogo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Mela Whole Foods Mobile Grocery truck serving the community">
     <meta property="og:site_name" content="Mela Whole Foods">
 
-    <!-- Twitter -->
+  <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://melawholefoodsva.com/">
     <meta property="twitter:title" content="Mela Whole Foods Mobile Grocery - Community Impact">
     <meta property="twitter:description" content="Mobile grocery service bringing fresh, affordable food to underserved communities. Join our mission to fight hunger and empower neighborhoods.">
     <meta property="twitter:image" content="https://melawholefoodsva.com/images/Melalogo.png">
+  <!-- SEO: Associate Twitter profile for richer cards -->
+  <meta name="twitter:site" content="@melawholefoods">
 
     <!-- Favicon and icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <!-- PWA/SEO: Minimal manifest for metadata and install prompts -->
+    <link rel="manifest" href="/site.webmanifest">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"></noscript>
-    <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="styles.css" as="style">
+  <!-- Performance: Preload likely LCP image (hero) to speed up first render -->
+  <link rel="preload" as="image" href="images/Melapro.png" imagesrcset="images/Melapro.png 1x" imagesizes="(max-width: 600px) 220px, (max-width: 1024px) 280px, 350px">
+  <!-- Performance: Preload main script without blocking render -->
+  <link rel="preload" href="script.js" as="script">
+  <!-- SEO: Single-language site hint for search engines -->
+  <link rel="alternate" href="https://melawholefoodsva.com/" hreflang="en-us">
+  <!-- Performance: Prefetch low-priority internal pages for faster navigation -->
+  <link rel="prefetch" href="/privacy-policy.html" as="document">
+  <link rel="prefetch" href="/partners.html" as="document">
+  <link rel="prefetch" href="/annual-reports.html" as="document">
     
     <!-- Critical CSS for above-the-fold content -->
     <style>
@@ -925,7 +943,7 @@
       "@type": "NGO",
       "name": "Mela Whole Foods",
       "url": "https://melawholefoodsva.com",
-      "logo": "https://melawholefoodsva.com/images/Melalogo.png",
+  "logo": "https://melawholefoodsva.com/images/Melalogo.png",
       "description": "Mobile grocery service bringing fresh, affordable food to underserved communities. Fighting hunger and building hope through community empowerment.",
       "address": {
         "@type": "PostalAddress",
@@ -964,6 +982,22 @@
       }
     }
     </script>
+    <!-- Structured Data: Organization for brand signals -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Mela Whole Foods",
+      "url": "https://melawholefoodsva.com/",
+      "logo": "https://melawholefoodsva.com/images/Melalogo.png",
+      "sameAs": [
+        "https://www.instagram.com/melawholefoods",
+        "https://www.facebook.com/melawholefoods",
+        "https://www.linkedin.com/company/melawholefoods",
+        "https://www.youtube.com/@melawholefoods"
+      ]
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -980,25 +1014,29 @@
     </script>
 </head>
 <body>
+  <!-- A11y: Skip link for keyboard users to jump to main content -->
+  <a href="#main" class="skip-link">Skip to main content</a>
     <!-- Header -->
     <header class="header">
         <nav class="navbar" role="navigation" aria-label="Main navigation">
                 <div class="logo">
-                    <img src="images/Melalogo.png" alt="Mela Whole Foods Logo" class="logo-img" width="100" height="100">
+          <img src="images/Melalogo.png" alt="Mela Whole Foods Logo" class="logo-img" width="100" height="100">
                     <h1><span class="mela-purple">Mela</span> Whole Foods</h1>
                 </div>
-                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleNavMenu()">
+        <!-- A11y: Tie button to menu via aria-controls for assistive tech -->
+        <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" onclick="toggleNavMenu()">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                <ul class="nav-menu" role="menubar" id="navMenu">
+        <ul class="nav-menu" role="menubar" id="navMenu">
                     <li role="none"><a href="#home" role="menuitem">Home</a></li>
                     <li role="none"><a href="#mission" role="menuitem">Mission</a></li>
                     <li role="none"><a href="#objectives" role="menuitem">Objectives</a></li>
                     <li role="none"><a href="#community" role="menuitem">Community</a></li>
                     <li role="none"><a href="#products" role="menuitem">Products & Services</a></li>
-                    <li role="none"><a href="#impact" role="menuitem">Impact</a></li>
+          <!-- SEO/UX: Impact section is currently disabled; route to Innovation to avoid dead link -->
+          <li role="none"><a href="#innovation" role="menuitem" title="Impact section coming soon — see Innovation">Impact</a></li>
                     <li role="none"><a href="#innovation" role="menuitem">Innovation</a></li>
                     <li role="none"><a href="#merch" role="menuitem">Merch</a></li>
                     <li role="none"><a href="#volunteer" role="menuitem">Volunteer</a></li>
@@ -1009,7 +1047,7 @@
     </header>
 
     <!-- Hero Section -->
-    <main>
+  <main id="main"><!-- A11y: ID target for skip link -->
         
     <section id="home" class="hero">
       <div class="hero-content max-w-900 centered">
@@ -1017,12 +1055,13 @@
   <p class="text-brand fs-115 fw-400 mb-1">Mela is short for "Hlokomela (Ha-Lo-Ko-Mei-La)," which translates to "To take care of."</p>
           <div class="flex-center mt-1">
           <div class="flex-center flex-1 justify-center">
+            <!-- Performance: LCP image; prioritized via <link rel=preload> above -->
             <img src="images/Melapro.png" alt="Mela Whole Foods Logo" width="350" height="350" class="img-radius">
-          </div>
-          <div class="flex-col flex-1 items-center justify-center text-center">
-            <p class="fs-12 mt-1 mb-1">Empowering communities through fresh, affordable, and high-quality food delivered with heart, purpose, and a commitment to equity.</p>
+              <div>
+                <p class="text-brand fs-115 fw-400 mb-1 text-center">Empowering communities through fresh, affordable, and high-quality food delivered with heart, purpose, and a commitment to equity.</p>
+              </div>
             <div class="hero-buttons mt-2">
-              <a href="#mission" class="btn btn-primary mr-1">Our Mission</a>
+              <a href="#mission" class="btn btn-primary mr-1">More Information</a>
               <!-- <a href="#impact" class="btn btn-secondary">See Our Impact</a> -->
             </div>
           </div>
@@ -1074,7 +1113,8 @@
           <div class="container max-w-1400 centered">
             <div class="community-flex flex items-center gap-2">
               <div>
-                <img src="images/empower.jpg" alt="Community empowerment through fresh food access and local partnerships" width="500" height="500" class="img-radius" loading="lazy">
+                <!-- Performance: Non-critical image decodes asynchronously to improve responsiveness -->
+                <img src="images/empower.jpg" alt="Community empowerment through fresh food access and local partnerships" width="500" height="500" class="img-radius" loading="lazy" decoding="async">
               </div>
               <div class="section-card bg-white flex-1 p-2 text-center">
                 <div class="section-header text-center">
@@ -1216,22 +1256,23 @@
                 </div>
                 <div class="services-grid">
           <article class="service-card bg-alt p-1 maxw-250 text-center shadow-green-sm rounded-10">
-            <img src="images/produce.jpg" alt="Fresh local produce from community farmers" width="250" height="160" loading="lazy" class="br-6 h-160 obj-cover">
+            <!-- Perf/A11y: Async decode; dimensions already set to prevent layout shift -->
+            <img src="images/produce.jpg" alt="Fresh local produce from community farmers" width="250" height="160" loading="lazy" decoding="async" class="br-6 h-160 obj-cover">
                         <h3>Fresh Local Produce</h3>
                         <p>Hand-picked fruits and vegetables from local growers, delivered weekly.</p>
                     </article>
           <article class="service-card bg-alt p-1 maxw-250 text-center shadow-green-sm rounded-10">
-            <img src="images/grains.jpg" alt="Affordable pantry staples and grains for families" width="250" height="160" loading="lazy" class="br-6 h-160 obj-cover">
+            <img src="images/grains.jpg" alt="Affordable pantry staples and grains for families" width="250" height="160" loading="lazy" decoding="async" class="br-6 h-160 obj-cover">
                         <h3>Affordable Pantry Staples</h3>
                         <p>Grains, rice, canned goods, and essentials at prices everyone can afford.</p>
                     </article>
           <article class="service-card bg-alt p-1 maxw-250 text-center shadow-green-sm rounded-10">
-            <img src="images/fooddelivery.jpg" alt="Mobile grocery truck bringing food to neighborhoods" width="250" height="160" loading="lazy" class="br-6 h-160 obj-cover">
+              <img src="images/fooddelivery.jpg" alt="Mobile grocery truck bringing food to neighborhoods" width="250" height="160" loading="lazy" decoding="async" class="br-6 h-160 obj-cover">
                         <h3>Mobile Grocery Truck</h3>
                         <p>Our truck brings the store to you, no need to travel far for healthy food.</p>
                     </article>
           <article class="service-card bg-alt p-1 maxw-250 text-center shadow-green-sm rounded-10">
-            <img src="images/nutrition.jpg" alt="Community nutrition education and health workshops" width="250" height="160" loading="lazy" class="br-6 h-160 obj-cover">
+            <img src="images/nutrition.jpg" alt="Community nutrition education and health workshops" width="250" height="160" loading="lazy" decoding="async" class="br-6 h-160 obj-cover">
                         <h3>Nutrition Education</h3>
                         <p>Free workshops and tips to help families make healthy choices every day.</p>
                     </article>
@@ -1245,7 +1286,8 @@
         <div class="section-card bg-white p-2 centered text-center shadow-green-md maxw-400 rounded-10">
           <h2 class="text-brand">Mela Merch</h2>
           <div class="product-card bg-alt p-15 centered shadow-green-sm maxw-350 rounded-10 my-2">
-            <img src="images/Melalogo.png" alt="Mela Whole Foods merchandise coming soon - support our mission" width="250" height="250" class="img-radius obj-cover">
+            <!-- Perf: Lazy-load non-critical merch image and decode async -->
+            <img src="images/Melalogo.png" alt="Mela Whole Foods merchandise coming soon - support our mission" width="250" height="250" class="img-radius obj-cover" loading="lazy" decoding="async">
                         <!-- <h3 style="color:#387f2f;margin-top:1rem;">Merch Coming Soon!</h3> -->
                         <p class="fs-11 my-05" ></p>
             <a href="#" class="btn btn-primary mt-1">Coming Soon!</a>
@@ -1293,7 +1335,8 @@
                 <div class="donation-options">
                     <article class="donation-card">
                         <div class="donation-image">
-                            <img src="images/Melapro.png" alt="Mela Whole Foods donation support - helping families access fresh food" width="500" height="500" loading="lazy">
+                            <!-- Perf: Async decode for non-critical donation image -->
+                            <img src="images/Melapro.png" alt="Mela Whole Foods donation support - helping families access fresh food" width="500" height="500" loading="lazy" decoding="async">
                         </div>
                         <h3>Monetary Donations</h3>
                         <p>Financial contributions allow us to purchase fresh produce, proteins, and other essential items in bulk at reduced costs.</p>
@@ -1313,13 +1356,17 @@
                 
                 <div class="contact-content">
                     <!-- Contact Form - Optimized -->
-                    <form id="contactForm" class="contact-form" action="https://script.google.com/macros/s/AKfycbyKTzyoIqVngSsHUJ35SrGhm4P2NrH57TEhC7hQji-1u1K7qZdyVANkJaeZ2U4qiuq2vA/exec" method="POST" target="formFrame" novalidate>
+          <form id="contactForm" class="contact-form" action="https://script.google.com/macros/s/AKfycbyKTzyoIqVngSsHUJ35SrGhm4P2NrH57TEhC7hQji-1u1K7qZdyVANkJaeZ2U4qiuq2vA/exec" method="POST" target="formFrame" novalidate>
                       <input type="text" name="website" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true">
                       <div class="form-group">
-                        <input type="text" name="Name" placeholder="Your Name" required aria-required="true" autocomplete="name">
+            <!-- A11y: Add hidden label so placeholders aren't sole labels -->
+            <label for="name" class="sr-only">Name</label>
+            <input id="name" type="text" name="Name" placeholder="Your Name" required aria-required="true" autocomplete="name">
                       </div>
                       <div class="form-group">
-                        <input type="email" name="Email" placeholder="Your Email" required aria-required="true" autocomplete="email">
+            <!-- A11y: Add hidden label for email field -->
+            <label for="email" class="sr-only">Email</label>
+            <input id="email" type="email" name="Email" placeholder="Your Email" required aria-required="true" autocomplete="email">
                       </div>
                       <div class="form-group">
                         <label for="phone" class="sr-only">Phone</label>
@@ -1337,13 +1384,16 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <textarea name="Message" placeholder="Your Message" rows="5"></textarea>
+            <!-- A11y: Add hidden label for textarea -->
+            <label for="message" class="sr-only">Message</label>
+            <textarea id="message" name="Message" placeholder="Your Message" rows="5"></textarea>
                       </div>
                       <div class="form-group text-center">
                         <button type="submit" class="btn btn-primary">Send</button>
                       </div>
                     </form>
-                    <iframe name="formFrame" id="formFrame" title="hidden form submission" class="hidden"></iframe>
+          <!-- Performance: Defer loading of hidden iframe until needed -->
+          <iframe name="formFrame" id="formFrame" title="hidden form submission" class="hidden" loading="lazy"></iframe>
                     
                     
                     <!-- Direct Email Option -->
@@ -1378,7 +1428,8 @@
         <div class="qr-grid">
             <div class="qr-card">
               <h4>Zelle</h4>
-              <img src="images/MelaZelle.jpg" alt="Zelle QR code for donation" class="qr-img">
+              <!-- Perf: QR image decodes async inside modal -->
+              <img src="images/MelaZelle.jpg" alt="Zelle QR code for donation" class="qr-img" loading="lazy" decoding="async">
               <p class="qr-note">Donate through Zelle</p>
             </div>
           <div class="qr-card">
@@ -1414,7 +1465,8 @@
                         <li><a href="#objectives">Objectives</a></li>
                         <li><a href="#community">Community</a></li>
                         <li><a href="#products">Products & Services</a></li>
-                        <li><a href="#impact">Impact</a></li>
+                        <!-- SEO/UX: Avoid dead link; keep label identical to preserve design -->
+                        <li><a href="#innovation" title="Impact section coming soon — see Innovation">Impact</a></li>
                         <li><a href="#innovation">Innovation</a></li>
                         <li><a href="#merch">Merch</a></li>
                         <li><a href="#volunteer">Volunteer</a></li>
@@ -1547,5 +1599,15 @@
       });
     </script>
     <script src="script.js" defer></script>
+    <!-- Optional PWA: Register Service Worker for basic offline caching and 404 fallback -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').catch(function(err){
+            console.warn('Service worker registration failed:', err);
+          });
+        });
+      }
+    </script>
 </body>
 </html>

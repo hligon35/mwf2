@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="noindex, nofollow"><!-- SEO: Do not index the 404 page -->
+  <title>Page Not Found — Mela Whole Foods</title>
+  <meta name="description" content="The page you were looking for couldn't be found. Return to the Mela Whole Foods home page or contact us for help.">
+  <link rel="canonical" href="https://melawholefoodsva.com/">
+
+  <!-- Security headers via meta where supported (server headers recommended for full coverage) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://melawholefoodsva.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self'; font-src https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://script.google.com">
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <!-- Note: X-Frame-Options and other headers should be set at the CDN/server. -->
+
+  <!-- Performance: font preconnect and stylesheet preload -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"></noscript>
+
+  <!-- Site styles and assets -->
+  <link rel="stylesheet" href="/styles.css"><!-- Reuse site theme -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <style>
+    /* Page-specific small adjustments only; no layout changes to global components */
+    .not-found-hero { min-height: 60vh; display:flex; align-items:center; justify-content:center; text-align:center; padding: 2rem 0; }
+    .not-found-card { background:#fff; border-radius:12px; box-shadow:0 2px 10px rgba(56,127,47,0.10); padding:2rem; max-width:700px; margin:0 auto }
+    .not-found-card h1 { color:#387f2f; font-size:2rem; margin-bottom:0.75rem }
+    .not-found-card p { color:#555; margin-bottom:1rem }
+    .not-found-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap }
+    .not-found-illustration { max-width:220px; margin:0 auto 1rem auto; display:block }
+    @media (max-width: 600px) { .not-found-card { padding:1.25rem } .not-found-card h1 { font-size:1.6rem } }
+  </style>
+</head>
+<body>
+  <!-- A11y: Skip link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header (reused) -->
+  <header class="header">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="logo">
+        <img src="/images/Melalogo.png" alt="Mela Whole Foods Logo" class="logo-img" width="100" height="100">
+        <h1><span class="mela-purple">Mela</span> Whole Foods</h1>
+      </div>
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu" onclick="(window.toggleNavMenu && toggleNavMenu())">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" role="menubar" id="navMenu">
+        <li role="none"><a href="/index.html#home" role="menuitem">Home</a></li>
+        <li role="none"><a href="/index.html#mission" role="menuitem">Mission</a></li>
+        <li role="none"><a href="/index.html#products" role="menuitem">Products & Services</a></li>
+        <li role="none"><a href="/index.html#donate" role="menuitem">Donate</a></li>
+        <li role="none"><a href="/index.html#contact" role="menuitem">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero not-found-hero section-padding bg-alt">
+      <div class="container max-w-900 centered">
+        <div class="section-card bg-white not-found-card centered text-center">
+          <!-- Perf: small image, lazy-loaded -->
+          <img src="/images/Melalogo.png" width="220" height="220" alt="Mela Whole Foods" class="not-found-illustration img-radius" loading="lazy" decoding="async">
+          <h1>We couldn’t find that page</h1>
+          <p>Let’s get you back on track. Use the links below or go to the home page.</p>
+          <div class="not-found-actions">
+            <a href="/index.html#home" class="btn btn-primary">Go Home</a>
+            <a href="/index.html#contact" class="btn btn-secondary">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (reused) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content max-w-1200 centered gap-3">
+        <div class="footer-section">
+          <h3>Mela Whole Foods</h3>
+          <p>Serving our community with dignity, respect, and compassion. No one should go hungry.</p>
+          <div class="social-links">
+            <a href="https://facebook.com/melawholefoods" aria-label="Follow us on Facebook" rel="noopener noreferrer" target="_blank">
+              <img src="/images/SocialIcons/Facebook.png" alt="Facebook" class="social-icon" width="40" height="40" loading="lazy">
+            </a>
+            <a href="https://instagram.com/melawholefoods" aria-label="Follow us on Instagram" rel="noopener noreferrer" target="_blank">
+              <img src="/images/SocialIcons/IGicon.png" alt="Instagram" class="social-icon" width="40" height="40" loading="lazy">
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/index.html#home">Home</a></li>
+            <li><a href="/index.html#mission">Mission</a></li>
+            <li><a href="/index.html#products">Products & Services</a></li>
+            <li><a href="/index.html#donate">Donate</a></li>
+            <li><a href="/index.html#contact">Contact</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/partners.html">Partners</a></li>
+            <li><a href="/annual-reports.html">Annual Reports</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>Virtual Address:<br>9221 Forest Hill Ave Suite 1 PMB 1021<br>Richmond, VA 23235</p>
+          <p>Email: <a href="mailto:info@melawholefoodsva.com" class="mailto-footer">info@melawholefoodsva.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Mela Whole Foods. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Small helper for mobile nav if script not loaded yet -->
+  <script>
+    // No-op: header button calls toggleNavMenu() if available
+  </script>
+  <script src="/script.js" defer></script>
+</body>
+</html>

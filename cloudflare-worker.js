@@ -23,17 +23,47 @@ function buildCorsHeaders(request) {
   }
 }
 
+// Security headers to be applied to all responses
+function buildSecurityHeaders() {
+  return {
+    // Enforce modern security policies
+    'Content-Security-Policy': [
+      "default-src 'self'",
+      "img-src 'self' data: https://melawholefoodsva.com",
+      "style-src 'self' https://fonts.googleapis.com 'unsafe-inline'",
+      "script-src 'self'",
+      "font-src https://fonts.gstatic.com 'self'",
+      "connect-src 'self'",
+      "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "form-action 'self' https://script.google.com"
+    ].join('; '),
+    'Referrer-Policy': 'no-referrer-when-downgrade',
+    'Permissions-Policy': 'geolocation=(), microphone=(), camera=(), interest-cohort=()',
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'X-XSS-Protection': '0', // modern browsers use CSP; avoid legacy heuristic
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+    // Reasonable defaults for API caching
+    'Cache-Control': 'no-store'
+  }
+}
+
+function withSecurityHeaders(headers) {
+  return { ...headers, ...buildSecurityHeaders() }
+}
+
 async function handleRequest(request) {
   const corsHeaders = buildCorsHeaders(request)
 
   if (request.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders })
+  return new Response(null, { headers: withSecurityHeaders(corsHeaders) })
   }
 
   if (request.method !== 'POST') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      headers: withSecurityHeaders({ ...corsHeaders, 'Content-Type': 'application/json' })
     })
   }
 
@@ -54,7 +84,7 @@ async function handleRequest(request) {
     if ((payload.website || payload.Website || '').toString().trim() !== '') {
       return new Response(JSON.stringify({ error: 'Spam detected' }), {
         status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        headers: withSecurityHeaders({ ...corsHeaders, 'Content-Type': 'application/json' })
       })
     }
 
@@ -82,7 +112,7 @@ async function handleRequest(request) {
     if (errors.length > 0) {
       return new Response(JSON.stringify({ error: 'Validation failed', details: errors }), {
         status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        headers: withSecurityHeaders({ ...corsHeaders, 'Content-Type': 'application/json' })
       })
     }
 
@@ -128,14 +158,14 @@ User Agent: ${request.headers.get('User-Agent')}
 
     return new Response(JSON.stringify({ success: true, message: 'Message sent successfully' }), {
       status: 200,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      headers: withSecurityHeaders({ ...corsHeaders, 'Content-Type': 'application/json' })
     })
 
   } catch (error) {
     console.error('Contact form error:', error)
     return new Response(JSON.stringify({ error: 'Failed to send message. Please try again.' }), {
       status: 500,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+      headers: withSecurityHeaders({ ...corsHeaders, 'Content-Type': 'application/json' })
     })
   }
 }

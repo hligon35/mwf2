@@ -65,6 +65,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Security/Perf: Ensure external links use rel=noopener and preconnect on idle
+window.requestIdleCallback?.(() => {
+    try {
+        // Harden target=_blank links
+        document.querySelectorAll('a[target="_blank"]').forEach(a => {
+            const rel = (a.getAttribute('rel')||'').split(/\s+/);
+            if(!rel.includes('noopener')) rel.push('noopener');
+            if(!rel.includes('noreferrer')) rel.push('noreferrer');
+            a.setAttribute('rel', rel.join(' ').trim());
+        });
+    } catch(_) {}
+}, { timeout: 2000 });
+
 // Donation amount button selection
 document.addEventListener('DOMContentLoaded', function() {
     const amountButtons = document.querySelectorAll('.amount-btn');
@@ -344,4 +357,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     wrapWordInNode(document.body);
+});
+
+// A11y: Update aria-current on header nav links to reflect the visible section
+document.addEventListener('DOMContentLoaded', function(){
+    const headerNav = document.querySelector('.navbar .nav-menu');
+    if(!headerNav) return;
+    const links = Array.from(headerNav.querySelectorAll('a[href^="#"]'));
+    const map = new Map();
+    links.forEach(a => {
+        const id = a.getAttribute('href');
+        if(!id || id.length < 2) return;
+        const section = document.querySelector(id);
+        if(section) map.set(section, a);
+    });
+    if(map.size === 0) return;
+    const observer = new IntersectionObserver(entries => {
+        // Choose the entry with largest intersection ratio near viewport top
+        let best = null;
+        for(const e of entries){
+            if(!e.isIntersecting) continue;
+            if(!best || e.intersectionRatio > best.intersectionRatio) best = e;
+        }
+        if(!best) return;
+        const activeLink = map.get(best.target);
+        if(!activeLink) return;
+        links.forEach(a => a.removeAttribute('aria-current'));
+        activeLink.setAttribute('aria-current','page');
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0.1, 0.25, 0.5, 0.75] });
+    map.forEach((_, section) => observer.observe(section));
 });
